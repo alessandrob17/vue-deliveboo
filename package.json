@@ -12,10 +12,12 @@
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
-    "vue": "^3.2.47"
+    "vue": "^3.2.47",
+    "vue-router": "^4.2.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",
+    "sass": "^1.62.1",
     "vite": "^4.3.2"
   }
 }
