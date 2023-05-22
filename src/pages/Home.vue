@@ -1,11 +1,8 @@
 <template>
     <Default>
         <h1>Ciao sono la tua home</h1>
-
-        <RestaurantFilter></RestaurantFilter>
-
         <Hero></Hero>
-
+        <RestaurantFilter></RestaurantFilter>
         <Accordion></Accordion>
     </Default>
 </template>
