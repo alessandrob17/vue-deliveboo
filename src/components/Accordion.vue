@@ -1,5 +1,5 @@
 <template>
-    <div class="accordion" id="accordionExample">
+    <div class="accordion container" id="accordionExample">
         <div class="accordion-item">
             <h2 class="accordion-header">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
@@ -49,9 +49,10 @@
                     custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
                     within the <code>.accordion-body</code>, though the transition does limit overflow.
                 </div>
+            </div>
         </div>
     </div>
-</div></template>
+</template>
 
 <script>
 export default {

@@ -1,7 +1,7 @@
 <template>
     <div>
         <NavBar></NavBar>
-        <main class="container">
+        <main>
             <slot />
         </main>
         <Footer></Footer>

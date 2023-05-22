@@ -1,21 +1,32 @@
 <template>
     <Default>
         <h1>Ciao sono la tua home</h1>
-        <RestaurantFilter></RestaurantFilter>
-        <Accordion></Accordion>
 
+        <RestaurantFilter></RestaurantFilter>
+
+        <Hero></Hero>
+
+        <Accordion></Accordion>
     </Default>
 </template>
 
 <script>
 import Default from '../layouts/Default.vue';
 import Accordion from '../components/Accordion.vue';
+
 import RestaurantFilter from '../components/RestaurantFilter.vue';
+
+import Hero from '../components/Hero.vue';
+
 export default {
     components: {
         Default,
         Accordion,
+
         RestaurantFilter,
+
+        Hero,
+
     },
 }
 </script>
