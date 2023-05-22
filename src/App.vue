@@ -1,14 +1,7 @@
 <script>
-import Main from './components/Main.vue'
-import NavBar from './components/NavBar.vue'
-import Footer from './components/Footer.vue'
 
 export default {
-  components: {
-    NavBar,
-    Main,
-    Footer,
-  }
+
 }
 </script>
 
@@ -17,5 +10,5 @@ export default {
 </template>
 
 <style lang="scss">
-@use './style/general.scss'
+@use './style/general.scss' as *;
 </style>
