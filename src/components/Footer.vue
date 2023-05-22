@@ -66,8 +66,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use '../style/partials/reset.scss' as *;
+@use '../style/partials/color.scss' as *;
+@use '../style/general.scss' as *;
+
 img {
     max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: currentColor;
 }
 
 .description {
