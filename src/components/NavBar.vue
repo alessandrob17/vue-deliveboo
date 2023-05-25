@@ -13,15 +13,15 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
                     <ul class="navbar-nav mb-2 mb-lg-0 ">
                         <li class="nav-item ">
-                            <a class="nav-link active" aria-current="page" href="#">Login</a>
+                            <a class="nav-link active text-white" aria-current="page" href="#">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Registrati</a>
+                            <a class="nav-link active text-white" aria-current="page" href="#">Registrati</a>
                         </li>
 
                     </ul>
                 </div>
-                <font-awesome-icon icon="fa-solid fa-star" />
+                <font-awesome-icon class="text-white" icon="fa-solid fa-star"/>
             </div>
         </nav>
     </header>
@@ -37,5 +37,8 @@ export default {
 img {
     width: 100%;
     max-width: 200px;
+}
+header{
+    background-color: #FF7659;
 }
 </style>

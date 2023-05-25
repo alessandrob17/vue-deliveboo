@@ -1,60 +1,45 @@
 <template>
-    <div class="d-flex justify-content-between row row-cols-1 row-cols-md-3 g-4 mb-5 container m-auto">
-        <div>
-            <div class="card p-0 transition  ">
-                <img src="https://picsum.photos/95/55" class=" rounded" alt="...">
-                <h1 class="text-danger card-img-overlay d-flex justify-content-center align-items-center">
-                    PIZZA
-                </h1>
-            </div>
-        </div>
-        <div>
-            <div class="card p-0 transition  ">
-                <img src="https://picsum.photos/95/55" class=" rounded" alt="...">
-                <h1 class="text-danger card-img-overlay d-flex justify-content-center align-items-center">
-                    PIZZA
-                </h1>
-            </div>
-        </div>
-        <div>
-            <div class="card p-0 transition  ">
-                <img src="https://picsum.photos/95/55" class=" rounded" alt="...">
-                <h1 class="text-danger card-img-overlay d-flex justify-content-center align-items-center">
-                    PIZZA
-                </h1>
-            </div>
-        </div>
-        <div>
-            <div class="card p-0 transition  ">
-                <img src="https://picsum.photos/95/55" class=" rounded" alt="...">
-                <h1 class="text-danger card-img-overlay d-flex justify-content-center align-items-center">
-                    PIZZA
-                </h1>
-            </div>
-        </div>
-        <div>
-            <div class="card p-0 transition  ">
-                <img src="https://picsum.photos/95/55" class=" rounded" alt="...">
-                <h1 class="text-danger card-img-overlay d-flex justify-content-center align-items-center">
-                    PIZZA
-                </h1>
-            </div>
-        </div>
-        <div>
-            <div class="card p-0 transition  ">
-                <img src="https://picsum.photos/95/55" class=" rounded" alt="...">
-                <h1 class="text-danger card-img-overlay d-flex justify-content-center align-items-center">
-                    PIZZA
-                </h1>
-            </div>
-        </div>
+<div  class="mb-5">
+    <h2 class="filter-title">Di cosa hai voglia?</h2>
+    <div class="box">
+        <carousel :items-to-show="12" :wrapAround="true" :transition="500">
+            <slide v-for="slide in 20" :key="slide">
+                <div class="">
+                    <img class="card-img-top" src="../assets/pizza.jpeg" alt="Pizza">
+                    <div class="title">Pizza</div>
+                </div>
+            </slide>
+
+            <template #addons>
+            <navigation :arrowColor="'#FF7659'"/>
+            <pagination/>
+            </template>
+        </carousel>  
     </div>
+  
+
+
+</div>
+
+
+
 </template>
 
-<script>
-export default {
 
-}
+<script>
+      import 'vue3-carousel/dist/carousel.css'
+      import { defineComponent } from 'vue'
+      import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+      
+      export default defineComponent({
+        name: 'Autoplay',
+        components: {
+          Carousel,
+          Slide,
+          Pagination,
+          Navigation,
+        },
+      })
 </script>
 
 <style lang="scss" scoped>
@@ -65,7 +50,68 @@ export default {
 
     &:hover {
         transform: scale(1.1);
-
     }
 }
+.title{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transition: all;
+    top: 50%;
+    left: 50%;
+    color: white;
+    font-size: 30px;
+}
+.box{
+    margin: 0 auto;
+}
+.filter-title{
+    color: #FF7659;
+    text-shadow: 1px 1px rgb(157, 157, 157);
+    font-size: 50px;
+    width: 68vw;
+    text-align: center;
+    font-family: 'Playfair', serif;
+    font-style: italic;
+    margin: 0 auto;
+}
+.carousel__slide {
+    padding: 5px;
+  }
+  
+  .carousel__viewport {
+    perspective: 2000px;
+  }
+  
+  .carousel__track {
+    transform-style: preserve-3d;
+  }
+  
+  .carousel__slide--sliding {
+    transition: 0.5s;
+  }
+  
+  .carousel__slide {
+    opacity: 0.9;
+    transform: rotateY(-20deg) scale(0.9);
+  }
+  
+  .carousel__slide--active ~ .carousel__slide {
+    transform: rotateY(20deg) scale(0.9);
+  }
+  
+  .carousel__slide--prev {
+    opacity: 1;
+    transform: rotateY(-10deg) scale(0.95);
+  }
+  
+  .carousel__slide--next {
+    opacity: 1;
+    transform: rotateY(10deg) scale(0.95);
+  }
+  
+  .carousel__slide--active {
+    opacity: 1;
+    transform: rotateY(0) scale(1.1);
+  }
 </style>
+
