@@ -12,7 +12,7 @@
             <h2 class="mt-2">Prodotti disponibili</h2>
             <ul>
                 <li v-for="dish in dishesList" :key="dish.id">
-                    <span v-if="dish.restaurant_id === getIdRestaurant('id')">
+                    <span v-if="dish.restaurant_id == getIdRestaurant('id')">
                         {{ dish.name }} {{ dish.price }}
                     </span>
                     <span v-else>
