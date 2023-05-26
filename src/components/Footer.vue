@@ -1,5 +1,5 @@
 <template>
-    <footer style="background-color: #2D3430;">
+    <footer style="background-color: #FF7659;">
         <div class="container-fluid">
             <div class="row">
                 <div class="description m-auto d-flex flex-column text-white">

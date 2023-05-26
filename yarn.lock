@@ -476,6 +476,11 @@ vite@^4.0.0, vite@^4.3.2:
   optionalDependencies:
     fsevents "~2.3.2"
 
+vue-easy-slider@^5.3.4:
+  version "5.3.4"
+  resolved "https://registry.npmjs.org/vue-easy-slider/-/vue-easy-slider-5.3.4.tgz"
+  integrity sha512-PCdc4A2nwK7eH4vZdK4HqZBd8hfEMGN1HsxzNRIaDGDL4xLW3zgN+7a+SBkQbe4mN9Uuf/K9yw2qDDRqYUZgtw==
+
 vue-router@^4.2.1:
   version "4.2.1"
   resolved "https://registry.npmjs.org/vue-router/-/vue-router-4.2.1.tgz"
