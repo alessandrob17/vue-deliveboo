@@ -1,27 +1,40 @@
 <template>
     <Default>
-        <div class="container mt-3">
-            <h2>Carrello</h2>
-            <ul>
-                <li v-for="(dish, index) in dishes" :key="dish.id">
-                    {{ dish.name }} {{ dish.price }} ({{ dish.quantity }})
-                    <button @click="removeDishFromCart(index)">Rimuovi</button>
-                </li>
-                <p>Somma totale: {{ totalPrice }}</p>
-            </ul>
-            <h2 class="mt-2">Prodotti disponibili</h2>
-            <ul>
-                <li v-for="dish in dishesList" :key="dish.id">
-                    <span v-if="dish.restaurant_id == getIdRestaurant('id')">
-                        {{ dish.name }} {{ dish.price }}
-                    </span>
-                    <span v-else>
-                        Nessun piatto
-                    </span>
-
-                    <button @click="addDishToCart(dish)">Aggiungi al carrello</button>
-                </li>
-            </ul>
+        <div class="d-flex">
+            <div class="row row-cols-1 row-cols-md-3 g-4 ps-5 pe-5 container">
+                <div class="card" v-for="dish in dishesList" :key="dish.id">
+                    <img src="https://www.negroni.com/sites/negroni.com/files/styles/scale__1440_x_1440_/public/664x487_istock-504122954.jpg?itok=GolOLXC4"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ dish.name }}</h5>
+                        <p class="card-text"> {{ dish.price }}</p>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <button @click="addDishToCart(dish)">
+                                <font-awesome-icon icon="fa-solid fa-cart-plus" />Aggiungi al carrello
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card text-dark bg-light mb-3 me-5" style="flex-grow: 1; max-height:600px">
+                <h3 class="card-header text-center">CARRELLO</h3>
+                <div class="card-body">
+                    <button @click="removeAllDish()">
+                        <font-awesome-icon icon="fa-solid fa-trash-can" />
+                        Rimuovi tutti
+                    </button>
+                    <ul>
+                        <li v-for="(dish, index) in dishes" :key="dish.id">
+                            {{ dish.name }} {{ dish.price }} ({{ dish.quantity }})
+                            <button @click="removeDishFromCart(index)">
+                                <font-awesome-icon icon="fa-solid fa-trash-can" />
+                                Rimuovi
+                            </button>
+                        </li>
+                        <p>Somma totale: {{ totalPrice }}</p>
+                    </ul>
+                </div>
+            </div>
         </div>
     </Default>
 </template>
@@ -83,15 +96,18 @@ export default {
                 this.dishes.splice(index, 1);
             }
         },
+
         getIdRestaurant(parameter) {
             const IdRestaurant = this.$route.params.id;
             if (parameter === 'id') {
                 return IdRestaurant;
             } else {
                 return null;
-            }
-        },
+            } 
     },
+    removeAllDish() {
+            this.dishes = [];
+        },
     computed: {
         totalPrice() {
             return this.dishes.reduce((total, dish) => total + (dish.price * dish.quantity), 0).toFixed(2);
@@ -110,9 +126,7 @@ export default {
         if (localStorage.dishes) {
             this.dishes = JSON.parse(localStorage.dishes);
         }
-
     }
-
 }
 </script>
 
