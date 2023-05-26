@@ -96,10 +96,18 @@ export default {
                 this.dishes.splice(index, 1);
             }
         },
-        removeAllDish() {
+
+        getIdRestaurant(parameter) {
+            const IdRestaurant = this.$route.params.id;
+            if (parameter === 'id') {
+                return IdRestaurant;
+            } else {
+                return null;
+            } 
+    },
+    removeAllDish() {
             this.dishes = [];
         },
-    },
     computed: {
         totalPrice() {
             return this.dishes.reduce((total, dish) => total + (dish.price * dish.quantity), 0).toFixed(2);
@@ -118,9 +126,7 @@ export default {
         if (localStorage.dishes) {
             this.dishes = JSON.parse(localStorage.dishes);
         }
-
     }
-
 }
 </script>
 
