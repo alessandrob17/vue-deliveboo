@@ -1,7 +1,21 @@
 <template>
     <Default>
-        <div>
-            il tuo ristorante specifico
+        <div class="container mt-3">
+            <h2>Carrello</h2>
+            <ul>
+                <li v-for="(dish, index) in dishes" :key="dish.id">
+                    {{ dish.name }} {{ dish.price }} ({{ dish.quantity }})
+                    <button @click="removeDishFromCart(index)">Rimuovi</button>
+                </li>
+                <p>Somma totale: {{ totalPrice }}</p>
+            </ul>
+            <h2 class="mt-2">Prodotti disponibili</h2>
+            <ul>
+                <li v-for="dish in dishesList" :key="dish.id">
+                    {{ dish.name }} {{ dish.price }}
+                    <button @click="addDishToCart(dish)">Aggiungi al carrello</button>
+                </li>
+            </ul>
         </div>
     </Default>
 </template>
@@ -13,30 +27,63 @@ export default {
     components: {
         Default
     },
+    data() {
+        return {
+            dishes: [],
+            dishesList: [],
+        };
+    },
     props: ['id'],
     methods: {
-        fetchProjects(id) {
+        fetchRestaurants(id) {
             axios.get(`http://127.0.0.1:8000/api/restaurants/${id}`)
                 .then(res => {
-                    const { success, project } = res.data;
+                    const { success, restaurant } = res.data;
                     if (success) {
-                        this.project = project;
+                        this.restaurant = restaurant;
                     } else {
                         //   this.$router.replace({ name: '404' });
                         console.log('errore')
                     }
                 });
-        }
+        },
+        fetchDishes() {
+            axios.get('http://127.0.0.1:8000/api/dishes/').then((res) => {
+                let result = res.data.results;
+                this.dishesList = result.map((dish) => ({ ...dish, quantity: 0 }));
+            });
+        },
+        addDishToCart(dish) {
+            const existingDish = this.dishes.find((d) => d.id === dish.id);
+            if (existingDish) {
+                existingDish.quantity++;
+            } else {
+                this.dishes.push({ ...dish, quantity: 1 });
+            }
+        },
+        removeDishFromCart(index) {
+            const dish = this.dishes[index];
+            if (dish.quantity > 1) {
+                dish.quantity--;
+            } else {
+                this.dishes.splice(index, 1);
+            }
+        },
+    },
+    computed: {
+        totalPrice() {
+            return this.dishes.reduce((total, dish) => total + (dish.price * dish.quantity), 0).toFixed(2);
+        },
     },
     created() {
         const id = this.$route.params.id;
     },
     beforeRouteUpdate(to, from) {
         const newId = to.params.id;
-        this.fetchProjects(newId);
+        this.fetchRestaurants(newId);
     },
     mounted() {
-        console.log(this.$route);
+        this.fetchDishes();
     }
 
 }
