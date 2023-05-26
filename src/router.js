@@ -26,7 +26,7 @@ const router = createRouter({
             name: 'research',
             component: Research,
         },
-
+        {
             path: '/restaurant/:id',
             name: 'restaurants.show',
             component: RestaurantsShow,
