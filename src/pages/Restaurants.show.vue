@@ -103,28 +103,29 @@ export default {
                 return IdRestaurant;
             } else {
                 return null;
-            } 
-    },
-    removeAllDish() {
+            }
+        },
+        removeAllDish() {
             this.dishes = [];
         },
-    computed: {
-        totalPrice() {
-            return this.dishes.reduce((total, dish) => total + (dish.price * dish.quantity), 0).toFixed(2);
+        computed: {
+            totalPrice() {
+                return this.dishes.reduce((total, dish) => total + (dish.price * dish.quantity), 0).toFixed(2);
+            },
         },
-    },
-    created() {
-        const id = this.$route.params.id;
-    },
-    beforeRouteUpdate(to, from) {
-        const newId = to.params.id;
-        this.fetchRestaurants(newId);
-    },
-    mounted() {
-        this.fetchDishes();
+        created() {
+            const id = this.$route.params.id;
+        },
+        beforeRouteUpdate(to, from) {
+            const newId = to.params.id;
+            this.fetchRestaurants(newId);
+        },
+        mounted() {
+            this.fetchDishes();
 
-        if (localStorage.dishes) {
-            this.dishes = JSON.parse(localStorage.dishes);
+            if (localStorage.dishes) {
+                this.dishes = JSON.parse(localStorage.dishes);
+            }
         }
     }
 }
