@@ -19,6 +19,10 @@
             <div class="card text-dark bg-light mb-3 me-5" style="flex-grow: 1; max-height:600px">
                 <h3 class="card-header text-center">CARRELLO</h3>
                 <div class="card-body">
+                    <button @click="removeAllDish()">
+                        <font-awesome-icon icon="fa-solid fa-trash-can" />
+                        Rimuovi tutti
+                    </button>
                     <ul>
                         <li v-for="(dish, index) in dishes" :key="dish.id">
                             {{ dish.name }} {{ dish.price }} ({{ dish.quantity }})
@@ -91,6 +95,9 @@ export default {
             } else {
                 this.dishes.splice(index, 1);
             }
+        },
+        removeAllDish() {
+            this.dishes = [];
         },
     },
     computed: {
