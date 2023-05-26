@@ -17,16 +17,12 @@ import RestaurantFilter from '../components/RestaurantFilter.vue';
 
 import Hero from '../components/Hero.vue';
 
-import ShoppingCart from '../components/Menu.vue';
-
-
 export default {
     components: {
         Default,
         Accordion,
         RestaurantFilter,
         Hero,
-        ShoppingCart,
     },
 }
 </script>
