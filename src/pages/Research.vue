@@ -1,17 +1,20 @@
 <template>
-    <div class="container">
-        <div class="filters">
-            <label v-for="tcard in typologies" :key="tcard.id">
-                <input type="checkbox" :value="tcard.id" v-model="selectedTypologies">
-                {{ tcard.id }} - {{ tcard.name }}
-            </label>
-            <input type="text" v-model="searchTerm" placeholder="Cerca per nome" />
-        </div>
+    <DefaultLayout>
+        <div class="container">
+            <div class="filters">
+                <label v-for="tcard in typologies" :key="tcard.id">
+                    <input type="checkbox" :value="tcard.id" v-model="selectedTypologies">
+                    {{ tcard.id }} - {{ tcard.name }}
+                </label>
+                <input type="text" v-model="searchTerm" placeholder="Cerca per nome" />
+            </div>
 
-        <div class="restaurants">
-            <slug v-for="rcard in filteredRestaurants" :key="rcard.id">{{ rcard.id }} - {{ rcard.restaurant_name }}</slug>
+            <div class="restaurants">
+                <slug v-for="rcard in filteredRestaurants" :key="rcard.id">{{ rcard.id }} - {{ rcard.restaurant_name }}
+                </slug>
+            </div>
         </div>
-    </div>
+    </DefaultLayout>
 </template>
 
 <script>
