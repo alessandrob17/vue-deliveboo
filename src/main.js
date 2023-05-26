@@ -13,3 +13,6 @@ library.add(faUserSecret, faMagnifyingGlass, faStar, faGithub)
 
 
 createApp(App).use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
+
+
+
