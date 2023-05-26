@@ -33,6 +33,14 @@ export default {
             dishesList: [],
         };
     },
+    watch: {
+        dishes: {
+            handler(newDishes) {
+                localStorage.dishes = JSON.stringify(newDishes);
+            },
+            deep: true
+        }
+    },
     props: ['id'],
     methods: {
         fetchRestaurants(id) {
@@ -84,6 +92,11 @@ export default {
     },
     mounted() {
         this.fetchDishes();
+
+        if (localStorage.dishes) {
+            this.dishes = JSON.parse(localStorage.dishes);
+        }
+
     }
 
 }
