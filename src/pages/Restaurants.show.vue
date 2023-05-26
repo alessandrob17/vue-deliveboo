@@ -12,7 +12,13 @@
             <h2 class="mt-2">Prodotti disponibili</h2>
             <ul>
                 <li v-for="dish in dishesList" :key="dish.id">
-                    {{ dish.name }} {{ dish.price }}
+                    <span v-if="dish.restaurant_id === getIdRestaurant('id')">
+                        {{ dish.name }} {{ dish.price }}
+                    </span>
+                    <span v-else>
+                        Nessun piatto
+                    </span>
+
                     <button @click="addDishToCart(dish)">Aggiungi al carrello</button>
                 </li>
             </ul>
@@ -75,6 +81,14 @@ export default {
                 dish.quantity--;
             } else {
                 this.dishes.splice(index, 1);
+            }
+        },
+        getIdRestaurant(parameter) {
+            const IdRestaurant = this.$route.params.id;
+            if (parameter === 'id') {
+                return IdRestaurant;
+            } else {
+                return null;
             }
         },
     },
