@@ -3,6 +3,7 @@ import Home from './pages/Home.vue'
 import Restaurant from './pages/Restaurant.vue'
 import Research from './pages/Research.vue'
 import RestaurantsShow from './pages/Restaurants.show.vue'
+import NotFound from './pages/404.vue'
 
 
 const history = createWebHistory()
@@ -25,6 +26,11 @@ const router = createRouter({
             path: '/research',
             name: 'research',
             component: Research,
+        },
+        {
+            path: '/404',
+            name: '404',
+            component: NotFound,
         },
         {
             path: '/restaurant/:id',
