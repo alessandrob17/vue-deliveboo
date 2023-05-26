@@ -3,17 +3,19 @@
         <div class="d-flex">
             <div class="row row-cols-1 row-cols-md-3 g-4 ps-5 pe-5 container">
                 <div class="card" v-for="dish in dishesList" :key="dish.id">
-                    <img src="https://www.negroni.com/sites/negroni.com/files/styles/scale__1440_x_1440_/public/664x487_istock-504122954.jpg?itok=GolOLXC4"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ dish.name }}</h5>
-                        <p class="card-text"> {{ dish.price }}</p>
-                        <div class="d-grid gap-2 col-6 mx-auto">
-                            <button @click="addDishToCart(dish)">
-                                <font-awesome-icon icon="fa-solid fa-cart-plus" />Aggiungi al carrello
-                            </button>
+                    <span v-if="dish.restaurant_id == getIdRestaurant('id')">
+                        <img src="https://www.negroni.com/sites/negroni.com/files/styles/scale__1440_x_1440_/public/664x487_istock-504122954.jpg?itok=GolOLXC4"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ dish.name }}</h5>
+                            <p class="card-text"> {{ dish.price }}</p>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <button @click="addDishToCart(dish)">
+                                    <font-awesome-icon icon="fa-solid fa-cart-plus" />Aggiungi al carrello
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    </span>
                 </div>
             </div>
             <div class="card text-dark bg-light mb-3 me-5" style="flex-grow: 1; max-height:600px">
@@ -108,24 +110,24 @@ export default {
         removeAllDish() {
             this.dishes = [];
         },
-        computed: {
-            totalPrice() {
-                return this.dishes.reduce((total, dish) => total + (dish.price * dish.quantity), 0).toFixed(2);
-            },
+    },
+    computed: {
+        totalPrice() {
+            return this.dishes.reduce((total, dish) => total + (dish.price * dish.quantity), 0).toFixed(2);
         },
-        created() {
-            const id = this.$route.params.id;
-        },
-        beforeRouteUpdate(to, from) {
-            const newId = to.params.id;
-            this.fetchRestaurants(newId);
-        },
-        mounted() {
-            this.fetchDishes();
+    },
+    created() {
+        const id = this.$route.params.id;
+    },
+    beforeRouteUpdate(to, from) {
+        const newId = to.params.id;
+        this.fetchRestaurants(newId);
+    },
+    mounted() {
+        this.fetchDishes();
 
-            if (localStorage.dishes) {
-                this.dishes = JSON.parse(localStorage.dishes);
-            }
+        if (localStorage.dishes) {
+            this.dishes = JSON.parse(localStorage.dishes);
         }
     }
 }
