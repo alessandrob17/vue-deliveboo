@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-7">
                     <div class="row">
-                        <div v-for="dish in dishesList" :key="dish.id">
+                        <!-- <div v-for="dish in dishesList" :key="dish.id">
                             <div class="card col" v-if="dish.restaurant_id == getIdRestaurant('id')">
                                 <img src="https://www.negroni.com/sites/negroni.com/files/styles/scale__1440_x_1440_/public/664x487_istock-504122954.jpg?itok=GolOLXC4"
                                     class="card-img-top" alt="...">
@@ -18,11 +18,11 @@
                                             <font-awesome-icon icon="fa-solid fa-cart-plus" />Aggiungi al carrello
                                         </button>
                                     </div>
-
-
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
+                        <DishCard v-for="dish in dishesList" :key="dish.id" :item="dish"
+                            @add-to-cart="addDishToCart(dish)" />
                     </div>
                 </div>
                 <div class="col-5">
@@ -57,9 +57,12 @@
 <script>
 import axios from 'axios';
 import Default from '../layouts/Default.vue';
+import DishCard from '../components/DishCard.vue';
+
 export default {
     components: {
-        Default
+        Default,
+        DishCard
     },
     data() {
         return {
