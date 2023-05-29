@@ -3,7 +3,7 @@
 
     <!-- advanced search -->
 
-    <a class="d-flex justify-content-center" href="#">
+    <a class="d-flex justify-content-center" href="/research">
       <button class="btn-search">Esegui una ricerca avanzata!</button>
     </a>
     <div class="box">
@@ -141,28 +141,24 @@ export default defineComponent({
   color: #FF7659;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
 .btn-search {
-  border-radius: 999px; 
+  border-radius: 999px;
   background-color: #FF7659;
   padding: 13px 35px;
   border: none;
   color: white;
   font-size: 23px;
   margin-bottom: 50px;
-  
-  
+
+
 }
 
 .btn-search:hover {
   background-color: #f75636;
 }
-
-
-
-
 </style>
 
