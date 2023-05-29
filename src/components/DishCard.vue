@@ -5,7 +5,7 @@
 
         <div class="dish-details">
 
-            <a class="dish-name" :href="`/dishs/${item.id}`">{{ item.name }}</a>
+            <h2 class="dish-name">{{ item.name }}</h2>
             <p class="dish-description">{{ item.description }}</p>
 
             <button @click="handleAddToCart">Aggiungi al carrello</button>
