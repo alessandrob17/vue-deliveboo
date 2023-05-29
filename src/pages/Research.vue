@@ -1,26 +1,33 @@
 <template>
-    <div class="container">
-        <div class="filters">
-            <label v-for="tcard in typologies" :key="tcard.id">
-                <input type="checkbox" :value="tcard.id" v-model="selectedTypologies">
-                {{ tcard.id }} - {{ tcard.name }}
-            </label>
-            <input type="text" v-model="searchTerm" placeholder="Cerca per nome" />
-        </div>
+    <DefaultLayout>
+        <div class="container my-5">
+            <div class="filters">
 
-        <div class="restaurants">
-            <slug v-for="rcard in filteredRestaurants" :key="rcard.id">{{ rcard.id }} - {{ rcard.restaurant_name }}</slug>
+                <input class="mb-5" type="text" v-model="searchTerm" placeholder="Cerca per nome" />
+
+                <label v-for="tcard in typologies" :key="tcard.id">
+                    <input type="checkbox" :value="tcard.id" v-model="selectedTypologies">
+                    {{ tcard.id }} - {{ tcard.name }}
+                </label>
+
+            </div>
+
+            <div class="restaurants">
+                <RestaurantCard v-for="restaurant in filteredRestaurants" :key="restaurant.id" :item="restaurant" />
+            </div>
         </div>
-    </div>
+    </DefaultLayout>
 </template>
 
 <script>
 import DefaultLayout from '../layouts/Default.vue';
+import RestaurantCard from '../components/RestaurantCard.vue';
 import axios from 'axios';
 
 export default {
     components: {
-        DefaultLayout
+        DefaultLayout,
+        RestaurantCard
     },
     data() {
         return {

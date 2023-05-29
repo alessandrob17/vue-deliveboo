@@ -63,7 +63,7 @@ export default {
                     id: 3,
                     name: "Giorgio Bocchio",
                     imageSrc: "/src/assets/Giorgio-Bocchio-profile.jpg",
-                    githubLink: "https://github.com/francescogentile"
+                    githubLink: "https://github.com/gautr0n"
                 },
                 {
                     id: 4,

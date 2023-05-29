@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from './pages/Home.vue'
-import Restaurant from './pages/Restaurant.vue'
+import Restaurants from './pages/Restaurants.vue'
 import Research from './pages/Research.vue'
 import RestaurantsShow from './pages/Restaurants.show.vue'
 import NotFound from './pages/404.vue'
@@ -17,9 +17,9 @@ const router = createRouter({
             component: Home,
         },
         {
-            path: '/restaurant',
-            name: 'restaurant',
-            component: Restaurant,
+            path: '/restaurants',
+            name: 'restaurants',
+            component: Restaurants,
         },
         {
 
@@ -28,12 +28,14 @@ const router = createRouter({
             component: Research,
         },
         {
+
             path: '/404',
             name: '404',
             component: NotFound,
         },
         {
-            path: '/restaurant/:id',
+
+            path: '/restaurants/:id',
             name: 'restaurants.show',
             component: RestaurantsShow,
             props: true
