@@ -1,17 +1,19 @@
 <template>
     <DefaultLayout>
-        <div class="container">
+        <div class="container my-5">
             <div class="filters">
+
+                <input class="mb-5" type="text" v-model="searchTerm" placeholder="Cerca per nome" />
+
                 <label v-for="tcard in typologies" :key="tcard.id">
                     <input type="checkbox" :value="tcard.id" v-model="selectedTypologies">
                     {{ tcard.id }} - {{ tcard.name }}
                 </label>
-                <input type="text" v-model="searchTerm" placeholder="Cerca per nome" />
+
             </div>
 
             <div class="restaurants">
-                <slug v-for="rcard in filteredRestaurants" :key="rcard.id">{{ rcard.id }} - {{ rcard.restaurant_name }}
-                </slug>
+                <RestaurantCard v-for="restaurant in filteredRestaurants" :key="restaurant.id" :item="restaurant" />
             </div>
         </div>
     </DefaultLayout>
@@ -19,11 +21,13 @@
 
 <script>
 import DefaultLayout from '../layouts/Default.vue';
+import RestaurantCard from '../components/RestaurantCard.vue';
 import axios from 'axios';
 
 export default {
     components: {
-        DefaultLayout
+        DefaultLayout,
+        RestaurantCard
     },
     data() {
         return {
