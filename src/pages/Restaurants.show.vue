@@ -10,6 +10,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ dish.name }}</h5>
                                 <p class="card-text"> {{ dish.price }}</p>
+                                <p class="card-text"> {{ dish.description }}</p>
                                 <div class="d-grid gap-2 col-6 mx-auto">
                                     <button @click="addDishToCart(dish)">
                                         <font-awesome-icon icon="fa-solid fa-cart-plus" />Aggiungi al carrello
