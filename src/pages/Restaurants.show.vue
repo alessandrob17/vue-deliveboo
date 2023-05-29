@@ -1,5 +1,6 @@
 <template>
     <Default>
+
         <div class="container">
             <div class="row">
                 <div class="col-7">
@@ -17,6 +18,8 @@
                                             <font-awesome-icon icon="fa-solid fa-cart-plus" />Aggiungi al carrello
                                         </button>
                                     </div>
+
+
                                 </div>
                             </div>
                         </div>

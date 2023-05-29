@@ -28,7 +28,7 @@ export default {
 
 <style lang="scss" scoped>
 @use '../style/general.scss' as *;
-@use '../style/partials/color.scss' as*;
+@use '../style/partials/color.scss' as *;
 
 h1 {
     color: $principale;
