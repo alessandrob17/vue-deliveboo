@@ -8,163 +8,83 @@
     </a> -->
     <AdvanceSearch></AdvanceSearch>
 
-    <div class="box">
-      <carousel :items-to-show="9" :wrapAround="true" :transition="500">
-        <slide v-for="slide in 20" :key="slide">
-          <div class="card-box">
-            <img class="card-img-top" src="https://picsum.photos/1000/1000" alt="Pizza">
-            <a class="title" href="">Pizza</a>
-          </div>
-        </slide>
-
-        <template #addons>
-          <navigation />
-          <pagination />
-        </template>
-      </carousel>
+    <div class="box row">
+      <div v-for="tcard in typologies" class="col-3 p-2 m-auto">
+        <a class="filter-link fs-1" href="/research">{{tcard.name}}</a>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import 'vue3-carousel/dist/carousel.css'
-import { defineComponent } from 'vue'
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+import { defineComponent } from 'vue';
+import axios from 'axios';
 import AdvanceSearch from './AdvanceSearch.vue';
 
 export default defineComponent({
-  name: 'Autoplay',
   components: {
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation,
     AdvanceSearch
   },
+    data() {
+        return {
+            restaurants: [],
+            typologies: [],
+        };
+    },
+    methods: {
+        fetchRestaurants() {
+            axios
+                .get('http://127.0.0.1:8000/api/restaurants')
+                .then((res) => {
+                    this.restaurants = res.data.results;
+                });
+        },
+        fetchTypologies() {
+            axios
+                .get('http://127.0.0.1:8000/api/typologies')
+                .then((res) => {
+                    this.typologies = res.data.results;
+                });
+        }
+    },
+    created() {
+        this.fetchRestaurants();
+        this.fetchTypologies();
+    },
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use '../style/partials/color.scss' as *;
-
-.transition {
-  transition: transform .2s;
-  box-shadow: 0px 4px 33px -7px #000000;
-
-
-  &:hover {
-    transform: scale(1.1);
-  }
-}
-
-.title {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  transition: all;
-  top: 50%;
-  left: 50%;
-  color: white;
-  font-size: 32px;
-  transition: transform .2s;
-  text-decoration: none;
-  font-weight: bolder;
-
-  &:hover {
-    color: $principale;
-  }
-}
 
 .box {
   margin: 0 auto;
-}
-
-.card-box {
-  height: 100%;
-  width: 100%;
-}
-
-.filter-title {
-  color: $principale;
-  text-shadow: 1px 1px rgb(157, 157, 157);
-  font-size: 50px;
-  width: 68vw;
-  text-align: center;
-  font-family: 'Playfair', serif;
-  font-style: italic;
-  margin: 0 auto;
-}
-
-.carousel__next,
-.carousel__prev {
-  color: black;
-  background-color: $principale;
-  border-radius: 25%;
-  height: 25%;
-  width: 3%;
-}
-
-.carousel__slide {
-  padding: 5px;
-}
-
-.carousel__viewport {
-  perspective: 2000px;
-}
-
-.carousel__track {
-  transform-style: preserve-3d;
-}
-
-.carousel__slide--sliding {
-  transition: 0.5s;
-}
-
-.carousel__slide {
-  opacity: 0.9;
-  transform: rotateY(-20deg) scale(0.9);
-}
-
-.carousel__slide--active~.carousel__slide {
-  transform: rotateY(20deg) scale(0.9);
-}
-
-.carousel__slide--prev {
-  opacity: 1;
-  transform: rotateY(-10deg) scale(0.95);
-}
-
-.carousel__slide--next {
-  opacity: 1;
-  transform: rotateY(10deg) scale(0.95);
-}
-
-.carousel__slide--active {
-  opacity: 1;
-  transform: rotateY(0) scale(1.1);
-}
-
-.carousel__pagination-item {
-  color: $principale;
+  width: 80vw;
 }
 
 a {
   text-decoration: none;
 }
 
-.btn-search {
-  border-radius: 999px;
-  background-color: $principale;
-  padding: 13px 35px;
-  border: none;
-  color: white;
-  font-size: 23px;
-  margin-bottom: 50px;
-
-
-}
-
 .btn-search:hover {
   background-color: $principale;
+}
+
+.filter-link {
+  width: 100%;
+  background-color: $principale;
+  border-radius: 25px;
+  color: white;
+  display: block;
+  padding: 10px 5px;
+  text-align: center;
+  border: 2px solid $principale;
+  transition: background-color 0.5s;
+  transition: color 0.5s;
+}
+.filter-link:hover{
+  background-color: white;
+  color: $principale;
 }
 </style>
 
