@@ -21,8 +21,10 @@
                                 </div>
                             </div>
                         </div> -->
-                        <DishCard v-for="dish in dishesList" :key="dish.id" :item="dish"
-                            @add-to-cart="addDishToCart(dish)" />
+                        <div v-for="dish in dishesList" :key="dish.id">
+                            <DishCard @add-to-cart="addDishToCart(dish)" :item="dish"
+                                v-if="dish.restaurant_id == getIdRestaurant('id')" />
+                        </div>
                     </div>
                 </div>
                 <div class="col-5">
@@ -145,6 +147,7 @@ export default {
         if (localStorage.dishes) {
             this.dishes = JSON.parse(localStorage.dishes);
         }
+
     }
 }
 </script>

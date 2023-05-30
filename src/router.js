@@ -22,19 +22,16 @@ const router = createRouter({
             component: Restaurants,
         },
         {
-
             path: '/research',
             name: 'research',
             component: Research,
         },
         {
-
             path: '/404',
             name: '404',
             component: NotFound,
         },
         {
-
             path: '/restaurants/:id',
             name: 'restaurants.show',
             component: RestaurantsShow,
