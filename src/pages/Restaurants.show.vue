@@ -5,22 +5,6 @@
             <div class="row">
                 <div class="col-7">
                     <div class="row">
-                        <!-- <div v-for="dish in dishesList" :key="dish.id">
-                            <div class="card col" v-if="dish.restaurant_id == getIdRestaurant('id')">
-                                <img src="https://www.negroni.com/sites/negroni.com/files/styles/scale__1440_x_1440_/public/664x487_istock-504122954.jpg?itok=GolOLXC4"
-                                    class="card-img-top" alt="...">
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">{{ dish.name }}</h5>
-                                    <p class="card-text m-0"> {{ dish.price }}</p>
-                                    <p class="card-text"> {{ dish.description }}</p>
-                                    <div class="">
-                                        <button @click="addDishToCart(dish)">
-                                            <font-awesome-icon icon="fa-solid fa-cart-plus" />Aggiungi al carrello
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                         <div v-for="dish in dishesList" :key="dish.id">
                             <DishCard @add-to-cart="addDishToCart(dish)" :item="dish"
                                 v-if="dish.restaurant_id == getIdRestaurant('id')" />
@@ -76,6 +60,7 @@ export default {
         dishes: {
             handler(newDishes) {
                 localStorage.dishes = JSON.stringify(newDishes);
+                localStorage.setItem('restaurant_id', JSON.stringify(this.getIdRestaurant('id')));
             },
             deep: true
         }
@@ -146,6 +131,14 @@ export default {
 
         if (localStorage.dishes) {
             this.dishes = JSON.parse(localStorage.dishes);
+        }
+
+        if (localStorage.restaurant_id) {
+            this.restaurant_id = JSON.parse(localStorage.restaurant_id);
+        }
+
+        if (this.restaurant_id != this.getIdRestaurant('id')) {
+            this.removeAllDish();
         }
 
     }
