@@ -3,6 +3,8 @@
         <Hero></Hero>
         <RestaurantFilter></RestaurantFilter>
         <Accordion></Accordion>
+
+
     </Default>
 </template>
 
