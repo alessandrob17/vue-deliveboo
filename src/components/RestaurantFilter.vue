@@ -2,10 +2,12 @@
   <div class="mb-5">
 
     <!-- advanced search -->
-
+    <!-- 
     <a class="d-flex justify-content-center" href="/research">
       <button class="btn-search">Esegui una ricerca avanzata!</button>
-    </a>
+    </a> -->
+    <AdvanceSearch></AdvanceSearch>
+
     <div class="box">
       <carousel :items-to-show="9" :wrapAround="true" :transition="500">
         <slide v-for="slide in 20" :key="slide">
@@ -28,6 +30,7 @@
 import 'vue3-carousel/dist/carousel.css'
 import { defineComponent } from 'vue'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+import AdvanceSearch from './AdvanceSearch.vue';
 
 export default defineComponent({
   name: 'Autoplay',
@@ -36,11 +39,14 @@ export default defineComponent({
     Slide,
     Pagination,
     Navigation,
+    AdvanceSearch
   },
 })
 </script>
 
 <style lang="scss">
+@use '../style/partials/color.scss' as *;
+
 .transition {
   transition: transform .2s;
   box-shadow: 0px 4px 33px -7px #000000;
@@ -64,7 +70,7 @@ export default defineComponent({
   font-weight: bolder;
 
   &:hover {
-    color: #FF7659;
+    color: $principale;
   }
 }
 
@@ -78,7 +84,7 @@ export default defineComponent({
 }
 
 .filter-title {
-  color: #FF7659;
+  color: $principale;
   text-shadow: 1px 1px rgb(157, 157, 157);
   font-size: 50px;
   width: 68vw;
@@ -91,7 +97,7 @@ export default defineComponent({
 .carousel__next,
 .carousel__prev {
   color: black;
-  background-color: #FF7659;
+  background-color: $principale;
   border-radius: 25%;
   height: 25%;
   width: 3%;
@@ -138,7 +144,7 @@ export default defineComponent({
 }
 
 .carousel__pagination-item {
-  color: #FF7659;
+  color: $principale;
 }
 
 a {
@@ -147,7 +153,7 @@ a {
 
 .btn-search {
   border-radius: 999px;
-  background-color: #FF7659;
+  background-color: $principale;
   padding: 13px 35px;
   border: none;
   color: white;
@@ -158,7 +164,7 @@ a {
 }
 
 .btn-search:hover {
-  background-color: #f75636;
+  background-color: $principale;
 }
 </style>
 

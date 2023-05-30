@@ -1,21 +1,29 @@
 <template>
-    <div class="restaurant-card">
-        <img :src="'http://127.0.0.1:8000/storage' + '/' + item.cover_image" alt="Restaurant Image"
-            class="restaurant-image" /> <!-- provvisorio -->
+    <a :href="`/restaurants/${item.id}`">
+        <div class="restaurant-card">
+            <img :src="'http://127.0.0.1:8000/storage' + '/' + item.cover_image" alt="Restaurant Image"
+                class="restaurant-image" /> <!-- provvisorio -->
 
-        <div class="restaurant-details">
+            <div class="restaurant-details">
 
-            <a class="restaurant-name" :href="`/restaurants/${item.id}`">{{ item.restaurant_name }}</a>
-            <p class="restaurant-description">{{ item.description }}</p>
-
-            <span v-for="typology in item.typologies" class="restaurant-typology badge rounded-pill bg-secondary">{{
-                typology.name }}</span>
+                <a class="restaurant-name">{{ item.restaurant_name }}</a>
+                <p class="restaurant-description d-none d-sm-block">{{ item.description }}</p>
+                <DropDownText>
+                    {{ item.description }}
+                </DropDownText>
+                <span v-for="typology in item.typologies" class="restaurant-typology badge rounded-pill bg-secondary m-1">{{
+                    typology.name }}</span>
+            </div>
         </div>
-    </div>
+    </a>
 </template>
 
 <script>
+import DropDownText from '../components/DropDownText.vue';
 export default {
+    components: {
+        DropDownText,
+    },
     props: {
         item: {
             type: Object,
@@ -26,9 +34,7 @@ export default {
             required: true
         }
     },
-    // created() {
-    //     console.log(this.item.typologies);
-    // }
+    components: { DropDownText }
 };
 </script>
 
