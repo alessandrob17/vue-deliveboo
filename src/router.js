@@ -5,7 +5,6 @@ import Research from './pages/Research.vue'
 import RestaurantsShow from './pages/Restaurants.show.vue'
 import NotFound from './pages/404.vue'
 
-
 const history = createWebHistory()
 
 const router = createRouter({
@@ -22,7 +21,7 @@ const router = createRouter({
         //     component: Restaurants,
         // },
         {
-            path: '/research',
+            path: '/research/:id',
             name: 'research',
             component: Research,
         },

@@ -10,7 +10,7 @@
 
     <div class="box row">
       <div v-for="tcard in typologies" class="col-3 p-2 m-auto">
-        <a class="filter-link fs-2" href="/research">{{tcard.name}}</a>
+        <a class="filter-link fs-2" :href="'/research/'+ tcard.id">{{tcard.name}}</a>
       </div>
     </div>
   </div>

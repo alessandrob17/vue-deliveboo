@@ -1,5 +1,5 @@
 <template>
-    <a class="d-flex justify-content-center" href="/research">
+    <a class="d-flex justify-content-center" href="/research/0">
         <button class="btn-search">Esegui una ricerca avanzata!</button>
     </a>
 </template>
