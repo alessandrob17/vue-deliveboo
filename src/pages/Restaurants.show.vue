@@ -184,4 +184,9 @@ export default {
 .icon {
     color: $principale;
 }
+
+.modal {
+    display: block;
+    background: rgba(0, 0, 0, 0.5);
+}
 </style>
