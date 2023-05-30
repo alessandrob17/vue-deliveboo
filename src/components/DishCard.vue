@@ -7,8 +7,12 @@
 
             <h2 class="dish-name">{{ item.name }}</h2>
             <p class="dish-description">{{ item.description }}</p>
+            <h4 class="dish-price"> &#8364; {{ item.price }}</h4>
 
-            <button @click="handleAddToCart">Aggiungi al carrello</button>
+            <!-- <button @click="handleAddToCart">Aggiungi al carrello</button> -->
+            <div @click="handleAddToCart" class="pointer fs-5">
+                <font-awesome-icon icon="fa-solid fa-cart-plus" class="icon" /> Aggiungi al carrello
+            </div>
 
         </div>
     </div>
@@ -34,6 +38,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use '../style/partials/color.scss' as *;
+
 .dish-card {
     display: flex;
     align-items: center;
@@ -47,7 +53,8 @@ export default {
     flex: 1;
 }
 
-.dish-name {
+.dish-name,
+.dish-price {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 5px;
@@ -63,6 +70,8 @@ export default {
 .dish-description {
     font-size: 14px;
     color: #555;
+    margin-bottom: 20px;
+
 }
 
 .dish-image {
@@ -71,5 +80,13 @@ export default {
     object-fit: cover;
     border-radius: 4px;
     margin-right: 20px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.icon {
+    color: $principale;
 }
 </style>

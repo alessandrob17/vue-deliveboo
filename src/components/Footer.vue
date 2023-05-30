@@ -1,5 +1,5 @@
 <template>
-    <footer style="background-color: #FF7659;">
+    <footer class="background">
         <div class="container-fluid">
             <div class="row">
                 <div class="description m-auto d-flex flex-column text-white">
@@ -82,7 +82,6 @@ export default {
     }
 }
 </script>
-
 <style lang="scss" scoped>
 @use '../style/partials/reset.scss' as *;
 @use '../style/partials/color.scss' as *;
@@ -130,5 +129,9 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.background {
+    background-color: $principale;
 }
 </style>

@@ -29,23 +29,23 @@
                     <div class="card text-dark bg-light">
                         <h3 class="card-header text-center">CARRELLO</h3>
                         <div class="card-body">
-                            <button @click="removeAllDish()">
+                            <div @click="removeAllDish()" class="text-danger pointer">
                                 <font-awesome-icon icon="fa-solid fa-trash-can" />
                                 Rimuovi tutti
-                            </button>
-                            <ul>
-                                <li v-for="(dish, index) in dishes" :key="dish.id">
-                                    {{ dish.name }} {{ dish.price }} ({{ dish.quantity }})
-                                    <button @click="addDishToCart(dish)">
-                                        <font-awesome-icon icon="fa-solid fa-cart-plus" />Aggiungi
-                                    </button>
-                                    <button @click="removeDishFromCart(index)">
-                                        <font-awesome-icon icon="fa-solid fa-trash-can" />
-                                        Rimuovi
-                                    </button>
-                                </li>
-                                <p>Somma totale: {{ totalPrice }}</p>
-                            </ul>
+                            </div>
+                            <div>
+                                <div v-for="(dish, index) in dishes" :key="dish.id" class="d-flex fs-5">
+                                    {{ dish.name }} &#8364; {{ dish.price }} ({{ dish.quantity }})
+                                    <div @click="addDishToCart(dish)" class="mx-2 pointer">
+                                        <!-- <font-awesome-icon icon="fa-solid fa-cart-plus" />Aggiungi -->
+                                        <font-awesome-icon icon="fa-solid fa-circle-plus" class="icon" />
+                                    </div>
+                                    <div @click="removeDishFromCart(index)" class="pointer">
+                                        <font-awesome-icon icon="fa-solid fa-circle-minus" class="icon" />
+                                    </div>
+                                </div>
+                                <p>Somma totale: &#8364; {{ totalPrice }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -149,4 +149,14 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@use '../style/partials/color.scss' as *;
+
+.pointer {
+    cursor: pointer;
+}
+
+.icon {
+    color: $principale;
+}
+</style>

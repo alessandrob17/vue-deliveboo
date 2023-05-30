@@ -10,7 +10,7 @@
                     aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+                <!-- <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
                     <ul class="navbar-nav mb-2 mb-lg-0 ">
                         <li class="nav-item ">
                             <a class="nav-link active text-white" aria-current="page" href="#">Login</a>
@@ -20,8 +20,8 @@
                         </li>
 
                     </ul>
-                </div>
-                <font-awesome-icon class="text-white" icon="fa-solid fa-star"/>
+                </div> -->
+                <font-awesome-icon class="text-white" icon="fa-solid fa-star" />
             </div>
         </nav>
     </header>
@@ -34,11 +34,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use '../style/partials/color.scss' as *;
+
 img {
     width: 100%;
     max-width: 200px;
 }
-header{
-    background-color: #FF7659;
+
+header {
+    background-color: $principale;
 }
 </style>

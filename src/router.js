@@ -16,11 +16,11 @@ const router = createRouter({
             name: 'home',
             component: Home,
         },
-        {
-            path: '/restaurants',
-            name: 'restaurants',
-            component: Restaurants,
-        },
+        // {
+        //     path: '/restaurants',
+        //     name: 'restaurants',
+        //     component: Restaurants,
+        // },
         {
 
             path: '/research',
