@@ -1,6 +1,6 @@
 <template>
   <div class="mb-5">
-    <h2 class="filter-title">Di cosa hai voglia?</h2>
+    <h2 class="filter-title mb-4">Di cosa hai voglia?</h2>
     <div class="box">
       <carousel :items-to-show="9" :wrapAround="true" :transition="500">
         <slide v-for="slide in 20" :key="slide">
