@@ -2,6 +2,26 @@
     <Default>
 
         <div class="container">
+            <div v-if="showPopup">
+                <div class="modal" tabindex="-1" role="dialog" @click="closePopup">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Il carrello è stato svuotato perchè non è possibile ordinare da più ristoranti
+                                    contemporaneamte.</p>
+                            </div>
+                            <!-- <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-7">
                     <div class="row">
@@ -37,6 +57,9 @@
                 </div>
             </div>
         </div>
+
+
+
     </Default>
 </template>
 
@@ -54,6 +77,7 @@ export default {
         return {
             dishes: [],
             dishesList: [],
+            showPopup: false,
         };
     },
     watch: {
@@ -113,6 +137,9 @@ export default {
         removeAllDish() {
             this.dishes = [];
         },
+        closePopup() {
+            this.showPopup = false;
+        },
     },
     computed: {
         totalPrice() {
@@ -138,6 +165,7 @@ export default {
         }
 
         if (this.restaurant_id != this.getIdRestaurant('id')) {
+            this.showPopup = true;
             this.removeAllDish();
         }
 
@@ -146,6 +174,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use '../style/general.scss' as *;
 @use '../style/partials/color.scss' as *;
 
 .pointer {
