@@ -10,19 +10,14 @@
 </template>
 
 <script>
+import { useStore } from 'vuex';
+
 export default {
-    data() {
-        return {
-            dishes: [],
-        };
-    },
-    created() {
-        const dishesQuery = this.$route.query.dishes;
-        if (dishesQuery) {
-            this.dishes = JSON.parse(dishesQuery);
-        }
-    },
     computed: {
+        dishes() {
+            const store = useStore();
+            return store.state.dishes;
+        },
         totale() {
             // Calcola il totale qui in base all'array dishes
             // e restituiscilo come risultato

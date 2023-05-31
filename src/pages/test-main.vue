@@ -6,20 +6,29 @@
 </template>
 
 <script>
-import { router } from '../router';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 
 export default {
-    methods: {
-        vaiAlPagamento() {
+    setup() {
+        const store = useStore();
+        const router = useRouter();
+
+        const vaiAlPagamento = () => {
             const dishes = [
-                { name: "Pasta alla Carbonara", id: 1 },
-                { name: "Pizza Margherita", id: 2 },
-                { name: "Bistecca alla Griglia", id: 3 },
-                { name: "Insalata Caesar", id: 4 }
+                { name: "Pasta alla Carbonara", price: 1 },
+                { name: "Pizza Margherita", price: 2 },
+                { name: "Bistecca alla Griglia", price: 3 },
+                { name: "Insalata Caesar", price: 4 }
             ]; // Il tuo array con i piatti dell'ordine
-            // Aggiungi i dati come parte dell'URL
-            router.push({ path: '/pagamento', query: { dishes: JSON.stringify(dishes) } });
-        },
-    },
+
+            store.dispatch('setDishes', dishes);
+            router.push({ name: 'pagamento' });
+        };
+
+        return {
+            vaiAlPagamento
+        };
+    }
 };
 </script>
