@@ -123,7 +123,7 @@ export default {
     }
 }
 </script>
-<style>
+<style lang="scss" scoped>
 body {
     padding: 20px;
 }
