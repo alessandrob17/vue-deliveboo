@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-5">
+  <div class="mb-5 filter-bg">
 
     <!-- advanced search -->
     <!-- 
@@ -73,7 +73,7 @@ a {
 .filter-link {
   width: 100%;
   background-color: white;
-  border-radius: 25px;
+  border-radius: 5px;
   color: $principale;
   display: block;
   padding: 10px 5px;
@@ -85,6 +85,11 @@ a {
 .filter-link:hover{
   background-color: $principale;
   color: white;
+}
+
+.filter-bg{
+  background-color: rgb(68, 130, 6);
+  padding: 100px;
 }
 </style>
 

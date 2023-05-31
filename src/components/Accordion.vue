@@ -59,12 +59,10 @@ export default {
 
 .accordio-title {
     color: #FF7659;
-    text-shadow: 1px 1px rgb(157, 157, 157);
     font-size: 50px;
     width: 68vw;
     text-align: center;
-    font-family: 'Playfair', serif;
-    font-style: italic;
+    font-family: 'Roboto', sans-serif;
     margin: 0 auto;
 }
 
