@@ -5,7 +5,8 @@
 
     <div class="box row">
       <div v-for="typology in typologies" :key="typology.id" class="col-3 p-2 m-auto">
-        <a class="filter-link fs-2" :href='/research/'>{{ typology.name }}</a>
+        <!-- <a class="filter-link fs-2" :href='/research'>{{ typology.name }}</a> -->
+        <a class="filter-link" @click="selectTypology(typology.id)">{{ typology.name }}</a>
       </div>
     </div>
   </div>
@@ -14,6 +15,8 @@
 <script>
 import AdvanceSearch from './AdvanceSearch.vue';
 import axios from 'axios';
+
+import { router } from '../router';
 
 export default {
 
@@ -32,7 +35,12 @@ export default {
         .then((res) => {
           this.typologies = res.data.results;
         });
-    }
+    },
+    selectTypology(id) {
+      const tipologyid = id; // Il tuo array con i piatti dell'ordine
+      // Aggiungi i dati come parte dell'URL
+      router.push({ path: '/research', query: { tipologyid: JSON.stringify(tipologyid) } });
+    },
   },
   created() {
     this.fetchTypologies();
@@ -50,6 +58,8 @@ export default {
 }
 
 .filter-link {
+  font-size: 14px;
+
   width: 100%;
   background-color: $principale;
   border-radius: 25px;

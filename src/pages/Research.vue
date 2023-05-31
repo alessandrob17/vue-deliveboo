@@ -6,8 +6,10 @@
                 <input class="mb-5" type="text" v-model="searchTerm" placeholder="Cerca per nome" />
 
                 <label v-for="tcard in typologies" :key="tcard.id">
-                    <input type="checkbox" :value="tcard.id" v-model="selectedTypologies">
+                    <input type="checkbox" :value="tcard.id" v-model="selectedTypologies"
+                        :checked="tcard.id == this.default_id">
                     {{ tcard.name }}
+                    {{ console.log(tcard.id == this.default_id) }}
                 </label>
 
             </div>
@@ -35,6 +37,8 @@ export default {
             typologies: [],
             selectedTypologies: [],
             searchTerm: '',
+
+            default_id: null,
         };
     },
 
@@ -81,6 +85,13 @@ export default {
     created() {
         this.fetchRestaurants();
         this.fetchTypologies();
+
+        const idQuery = this.$route.query.tipologyid;
+        if (idQuery) {
+            this.default_id = JSON.parse(idQuery);
+            this.selectedTypologies.push(this.default_id);
+        }
+        console.log(this.default_id);
     },
 
     watch: {
