@@ -7,7 +7,7 @@
 
                 <label v-for="tcard in typologies" :key="tcard.id">
                     <input type="checkbox" :value="tcard.id" v-model="selectedTypologies">
-                    {{ tcard.id }} - {{ tcard.name }}
+                    {{ tcard.name }}
                 </label>
 
             </div>
@@ -58,7 +58,7 @@ export default {
             }
 
             return filtered;
-        }
+        },
     },
 
     methods: {
@@ -92,6 +92,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use'../style/partials/reset.scss';
+
 .container {
     display: flex;
     flex-direction: row;

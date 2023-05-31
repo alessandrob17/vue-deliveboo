@@ -1,53 +1,57 @@
 <template>
-    <div class="accordion container" id="accordionExample">
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
-                    Accordion Item #1
-                </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse
-                    plugin adds the appropriate classes that we use to style each element. These classes control the overall
-                    appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
-                    custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
-                    within the <code>.accordion-body</code>, though the transition does limit overflow.
+    <div class="accordio-title mb-4">Domande Frequenti</div>
+    <div class="accordion-box mb-5">
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button fs-5" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Cos'è Deliveboo?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        La missione di Deliveroo è quella di trasformare il mondo del cibo a domicilio. Collaboriamo con i
+                        migliori ristoranti della città, dalle gemme locali alle grandi catene nazionali per portarti dove
+                        vuoi i tuoi piatti preferiti. Con centinaia di ristoranti e rider esperti, ti consegniamo il tuo
+                        ordine il più velocemente possibile.
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Accordion Item #2
-                </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse
-                    plugin adds the appropriate classes that we use to style each element. These classes control the overall
-                    appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
-                    custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
-                    within the <code>.accordion-body</code>, though the transition does limit overflow.
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed fs-5" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Come Funziona?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Puoi ordinare sia dal sito sia dalla nostra app, disponibile per iOS e Android. Aggiungi il tuo
+                        indirizzo di consegna per vedere quali ristoranti consegnano da te, scegli i tuoi piatti preferiti
+                        ed effettua l'ordine. Quando il tuo ordine viene accettato, il ristorante inizia a prepararlo e a
+                        confezionarlo. Una volta pronto, un nostro rider lo ritira e lo porta da te. Se vuoi essere super
+                        organizzato, puoi ordinare fino a 24 ore in anticipo con un ordine programmato.
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Accordion Item #3
-                </button>
-            </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse
-                    plugin adds the appropriate classes that we use to style each element. These classes control the overall
-                    appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
-                    custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
-                    within the <code>.accordion-body</code>, though the transition does limit overflow.
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed fs-5" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Che Tipo Di Ristoranti Trovo Su Deliveboo?
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Ci prendiamo cura personalmente di proporti un'ampia selezione di ristoranti di alta qualità nella
+                        tua area. Questo significa che puoi trovare dal miglior ristorante giapponese, all'hamburgheria più
+                        gustosa, alla pizzeria italiana tradizionale con forno a legna. L'unica cosa che non troverai su
+                        Deliveroo sono ristoranti di scarsa qualità.
+                    </div>
                 </div>
             </div>
         </div>
@@ -60,5 +64,35 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@use '../style/partials/color.scss' as *;
+
+.accordio-title {
+    color: $principale;
+    text-shadow: 1px 1px rgb(157, 157, 157);
+    font-size: 50px;
+    width: 68vw;
+    text-align: center;
+    font-family: 'Playfair', serif;
+    font-style: italic;
+    margin: 0 auto;
+}
+
+.accordion-box {
+    margin: 0 auto;
+    width: 80vw;
+}
+
+.accordion-button:not(.collapsed) {
+    color: white;
+    background-color: $principale;
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem $principale;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: var(--bs-accordion-btn-icon);
+}
 </style>
