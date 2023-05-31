@@ -4,6 +4,7 @@ import Restaurants from './pages/Restaurants.vue'
 import Research from './pages/Research.vue'
 import RestaurantsShow from './pages/Restaurants.show.vue'
 import NotFound from './pages/404.vue'
+import Payment from './pages/Payment.vue'
 
 
 const history = createWebHistory()
@@ -36,7 +37,14 @@ const router = createRouter({
             name: 'restaurants.show',
             component: RestaurantsShow,
             props: true
+        },
+        {
+
+            path: '/payment',
+            name: 'payment',
+            component: Payment,
         }
+
 
     ],
 })
