@@ -3,7 +3,7 @@
 
         <div>
             <!-- Contenuto del pagamento -->
-            <h2>Riepilogo dell'ordine</h2>
+            <h4>Riepilogo dell'ordine</h4>
             <ul>
                 <li v-for="dish in dishes" :key="dish.id">{{ dish.name }} x {{ dish.quantity }}</li>
             </ul>
