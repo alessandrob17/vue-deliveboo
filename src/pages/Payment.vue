@@ -61,8 +61,8 @@
                         </div> -->
 
 
-                        <button class="btn btn-primary btn-block" type="submit">
-                            Paga stronzo
+                        <button class="btn btn-primary btn-block my-3" type="submit">
+                            Paga <!-- stronzo -->
                         </button>
                     </form>
                 </div>
