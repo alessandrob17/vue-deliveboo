@@ -7,7 +7,7 @@
             <ul>
                 <li v-for="dish in dishes" :key="dish.id">{{ dish.name }} x {{ dish.quantity }}</li>
             </ul>
-            <p>Totale: {{ totale }}</p>
+            <!-- <p>Totale: {{ this.totalPrice }}</p> -->
         </div>
 
         <div class="col-6 offset-3">
@@ -36,8 +36,8 @@
                                 </div>
                                 <div class="col-6">
                                     <label>Totale</label>
-                                    <input type="text" v-model="total" class="form-control"
-                                        placeholder="Questo dato non deve essere un input">
+                                    <input type="text" v-model="totalPrice" class="form-control" placeholder="Totale"
+                                        readonly>
                                 </div>
                             </div>
                         </div>
@@ -80,14 +80,14 @@ export default {
     data() {
         return {
             hostedFieldInstance: false,
-            nonce: "",
+            nonce: '',
 
             name: '',
             address: '',
             phone_number: '',
 
-            total: '',
-        }
+            totalPrice: 0, // Modificato il nome della variabile da 'total' a 'totalPrice'
+        };
     },
 
     computed: {
@@ -97,7 +97,19 @@ export default {
         },
     },
 
+    created() {
+        this.calcolaTotale();
+    },
+
     methods: {
+        calcolaTotale() {
+            let totalPrice = 0;
+            for (const dish of this.dishes) {
+                totalPrice += dish.price * dish.quantity;
+            }
+            this.totalPrice = totalPrice;
+        },
+
         postOrder(event) {
             event.preventDefault();
 
@@ -106,71 +118,75 @@ export default {
                 address: this.address,
                 phone_number: this.phone_number,
 
-                total: this.total,
+                total: this.totalPrice, // Modificato il nome della variabile da 'total' a 'totalPrice'
             };
 
-            axios.post('http://localhost:8000/api/order-post', formData)
-                .then(response => {
+            axios
+                .post("http://localhost:8000/api/order-post", formData)
+                .then((response) => {
                     console.log(response.data);
                     // Esegui altre azioni dopo il salvataggio dei dati
                 })
-                .catch(error => {
+                .catch((error) => {
                     console.error(error);
                 });
         },
 
         mounted() {
-            braintree.client.create({
-                authorization: "sandbox_q76fr39z_pwygckh8zgzr2g5y"
-            })
-                .then(clientInstance => {
+            braintree.client
+                .create({
+                    authorization: "sandbox_q76fr39z_pwygckh8zgzr2g5y",
+                })
+                .then((clientInstance) => {
                     let options = {
                         client: clientInstance,
                         styles: {
                             input: {
-                                'font-size': '14px',
-                                'font-family': 'Open Sans'
-                            }
+                                "font-size": "14px",
+                                "font-family": "Open Sans",
+                            },
                         },
                         fields: {
                             number: {
-                                selector: '#creditCardNumber',
-                                placeholder: 'Enter Credit Card'
+                                selector: "#creditCardNumber",
+                                placeholder: "Enter Credit Card",
                             },
                             cvv: {
-                                selector: '#cvv',
-                                placeholder: 'Enter CVV'
+                                selector: "#cvv",
+                                placeholder: "Enter CVV",
                             },
                             expirationDate: {
-                                selector: '#expireDate',
-                                placeholder: '00 / 0000'
-                            }
-                        }
-                    }
-                    return braintree.hostedFields.create(options)
+                                selector: "#expireDate",
+                                placeholder: "00 / 0000",
+                            },
+                        },
+                    };
+                    return braintree.hostedFields.create(options);
                 })
-                .then(hostedFieldInstance => {
+                .then((hostedFieldInstance) => {
                     this.hostedFieldInstance = hostedFieldInstance;
                 })
-                .catch(err => {
+                .catch((err) => {
+                    console.error(err);
                 });
         },
 
         payWithCreditCard() {
             if (this.hostedFieldInstance) {
-                this.hostedFieldInstance.tokenize().then(payload => {
-                    console.log(payload);
-                    this.nonce = payload.nonce;
-                    console.log(this.nonce);
-                })
-                    .catch(err => {
-                        console.error(err);
-
+                this.hostedFieldInstance
+                    .tokenize()
+                    .then((payload) => {
+                        console.log(payload);
+                        this.nonce = payload.nonce;
+                        console.log(this.nonce);
                     })
+                    .catch((err) => {
+                        console.error(err);
+                    });
             }
         },
-    }
-}
+    },
+};
 </script>
 <style lang="scss" scoped>
 body {

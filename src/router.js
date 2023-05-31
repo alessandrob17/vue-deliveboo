@@ -6,10 +6,6 @@ import RestaurantsShow from './pages/Restaurants.show.vue'
 import NotFound from './pages/404.vue'
 import Payment from './pages/Payment.vue'
 
-import Test from './pages/test-main.vue'
-import Pagamento from './pages/Pagamento.vue'
-
-
 const history = createWebHistory()
 
 const router = createRouter({
@@ -47,18 +43,6 @@ const router = createRouter({
             name: 'payment',
             component: Payment,
         },
-        {
-            path: '/test',
-            name: 'test',
-            component: Test,
-        },
-        {
-            path: '/pagamento',
-            name: 'pagamento',
-            component: Pagamento,
-
-        },
-
     ],
 })
 export { router }
