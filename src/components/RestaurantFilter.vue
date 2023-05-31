@@ -37,9 +37,9 @@ export default {
         });
     },
     selectTypology(id) {
-      const tipologyid = id; // Il tuo array con i piatti dell'ordine
+      const typologyid = id; // Il tuo array con i piatti dell'ordine
       // Aggiungi i dati come parte dell'URL
-      router.push({ path: '/research', query: { tipologyid: JSON.stringify(tipologyid) } });
+      router.push({ path: '/research', query: { typologyid: JSON.stringify(typologyid) } });
     },
   },
   created() {

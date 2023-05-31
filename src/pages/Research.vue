@@ -86,7 +86,7 @@ export default {
         this.fetchRestaurants();
         this.fetchTypologies();
 
-        const idQuery = this.$route.query.tipologyid;
+        const idQuery = this.$route.query.typologyid;
         if (idQuery) {
             this.default_id = JSON.parse(idQuery);
             this.selectedTypologies.push(this.default_id);
