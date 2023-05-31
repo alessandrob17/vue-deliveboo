@@ -14,6 +14,10 @@ export default {
     data() {
         return {
             name: '',
+            address: 'via roma 104',
+            phone_number: '3484245698',
+
+            total: '23',
         };
     },
     methods: {
@@ -22,6 +26,10 @@ export default {
 
             const formData = {
                 name: this.name,
+                address: this.address,
+                phone_number: this.phone_number,
+
+                total: this.total,
             };
 
             // axios.post('/api/save-name', formData)
