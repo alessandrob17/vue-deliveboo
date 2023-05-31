@@ -1,10 +1,12 @@
 <template>
     <div class="container-fluid d-flex justify-content-center align-items-center mb-5">
-        <div class="prova d-flex">
+        <div class="prova">
             <div id="cursor" :style="{ top: cursorY + 'px', left: cursorX + 'px', }">
                 <div class="hero-hover">
-                    <a class="advise" href="">Rendi i tuoi Ristoranti preferiti a portata di un Click</a>
-                    <img class="pizza" src="../assets/pizza.jpeg" alt="">                    
+                    <!-- <a class="advise" href="">Rendi i tuoi Ristoranti preferiti a portata di un Click</a> -->
+
+                    <img class="pizza" src="../assets/462a03f57b4441e6c8e7079d4f3583f7-removebg.png" alt="">
+
                 </div>
             </div>
         </div>
@@ -32,9 +34,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use '../style/partials/color.scss' as *;
 @import url('https://fonts.googleapis.com/css2?family=Playfair:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+
 .container-fluid {
-    background-image: url(../assets/backgound-hero.jpg);
+    background-color: $principale;
     min-height: 700px;
 }
 
@@ -47,32 +51,35 @@ export default {
     position: absolute;
     transform: translate(-50%, -50%);
     transition: all;
-    top: 50%;
-    left: 50%;
+    // top: 50%;
+    // left: 50%;
 }
-.pizza{
-    border-radius: 100%;
-    width: 35vw;
+
+.pizza {
+    width: 25vw;
+
 }
-.advise{
-    position: absolute;
-    transform: translate(-50%, -50%);
-    transition: all;
-    top: 50%;
-    left: 50%;
-    text-decoration: none;
-    color: white;
-    font-size: 72px;
-    text-shadow: 3px 3px rgb(71, 71, 71);
-    width: 68vw;
-    text-align: center;
-    font-family: 'Playfair', serif;
-    font-style: italic;
+
+// .advise{
+//     position: absolute;
+//     transform: translate(-50%, -50%);
+//     transition: all;
+//     top: 50%;
+//     left: 50%;
+//     text-decoration: none;
+//     color: white;
+//     font-size: 72px;
+//     text-shadow: 3px 3px rgb(71, 71, 71);
+//     width: 68vw;
+//     text-align: center;
+//     font-family: 'Playfair', serif;
+//     font-style: italic;
+// }
+.hero-hover {
+    transition: transform .5s;  
+
 }
-.hero-hover{
-    transition: transform .5s;
-}
-.hero-hover:hover{
+
+.hero-hover:hover {
     transform: scale(1.1);
-}
-</style>
+}</style>
