@@ -188,7 +188,7 @@ export default {
             this.restaurant_id = JSON.parse(localStorage.restaurant_id);
         }
 
-        if (this.restaurant_id != this.getIdRestaurant('id')) {
+        if (this.restaurant_id != this.getIdRestaurant('id') && this.dishes.length > 0) {
             this.showPopup = true;
             this.removeAllDish();
         }

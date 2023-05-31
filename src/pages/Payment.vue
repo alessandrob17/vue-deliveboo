@@ -192,4 +192,9 @@ export default {
 body {
     padding: 20px;
 }
+
+ul,
+ol {
+    list-style: none;
+}
 </style>
