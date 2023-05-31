@@ -7,14 +7,28 @@
                     <div class="alert alert-success" v-if="nonce">
                         Successfully generated nonce.
                     </div>
-                    <form>
+                    <!-- <form @submit="postOrder">
                         <div class="form-group">
-                            <label for="amount">Totale</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text">€</span></div>
-                                <input type="number" id="amount" class="form-control" placeholder="Enter Amount">
+                            <label>Nome</label>
+                            <input id="" class="form-control" placeholder="Inserisci Nome">
+                        </div>
+                        <div class="form-group">
+                            <label>Indirizzo di consegna</label>
+                            <input id="" class="form-control" placeholder="Inserisci l'indirizzo di consegna">
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label>Numero di telefono</label>
+                                    <input id="" class="form-control" placeholder="numero di telefono">
+                                </div>
+                                <div class="col-6">
+                                    <label>Totale</label>
+                                    <input id="" class="form-control" placeholder="Questo dato non deve essere un input">
+                                </div>
                             </div>
                         </div>
+
                         <hr />
                         <div class="form-group">
                             <label>Numero carta di credito</label>
@@ -32,8 +46,10 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary btn-block" @click.prevent="payWithCreditCard">Paga stronzo</button>
-                    </form>
+                        <button class="btn btn-primary btn-block">
+                            Paga stronzo
+                        </button>
+                    </form> -->
                 </div>
             </div>
         </div>
@@ -86,6 +102,11 @@ export default {
             });
     },
     methods: {
+        //Se vuoi lanciare entrambe le funzioni con un unico button
+        // sendOrder() {
+        //     this.payWithCreditCard();
+        //     this.postOrder();
+        // },
         payWithCreditCard() {
             if (this.hostedFieldInstance) {
                 this.hostedFieldInstance.tokenize().then(payload => {
@@ -98,7 +119,7 @@ export default {
 
                     })
             }
-        }
+        },
     }
 }
 </script>
