@@ -1,5 +1,15 @@
 <template>
     <div class="container">
+
+        <div>
+            <!-- Contenuto del pagamento -->
+            <h2>Riepilogo dell'ordine</h2>
+            <ul>
+                <li v-for="dish in dishes" :key="dish.id">{{ dish.name }} x {{ dish.quantity }}</li>
+            </ul>
+            <p>Totale: {{ totale }}</p>
+        </div>
+
         <div class="col-6 offset-3">
             <div class="card bg-light">
                 <div class="card-header">Informazioni sul pagamento</div>
@@ -64,6 +74,8 @@
 import axios from 'axios';
 import braintree from 'braintree-web';
 
+import { useStore } from 'vuex';
+
 export default {
     data() {
         return {
@@ -76,6 +88,13 @@ export default {
 
             total: '',
         }
+    },
+
+    computed: {
+        dishes() {
+            const store = useStore();
+            return store.state.dishes;
+        },
     },
 
     methods: {
@@ -156,4 +175,5 @@ export default {
 <style lang="scss" scoped>
 body {
     padding: 20px;
-}</style>
+}
+</style>

@@ -7,13 +7,13 @@ const store = createStore({
         };
     },
     mutations: {
-        setDishes(state, dishes) {
+        setOrder(state, dishes) {
             state.dishes = dishes;
         },
     },
     actions: {
-        setDishes({ commit }, dishes) {
-            commit('setDishes', dishes);
+        setOrder({ commit }, dishes) {
+            commit('setOrder', dishes);
         },
     },
 });

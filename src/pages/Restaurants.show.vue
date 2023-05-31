@@ -51,14 +51,14 @@
                                     </div>
                                 </div>
                                 <p>Somma totale: &#8364; {{ totalPrice }}</p>
+
+                                <button @click="vaiAlPagamento">Vai al pagamento</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
 
     </Default>
 </template>
@@ -67,6 +67,10 @@
 import axios from 'axios';
 import Default from '../layouts/Default.vue';
 import DishCard from '../components/DishCard.vue';
+
+import { ref } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 
 export default {
     components: {
@@ -80,6 +84,24 @@ export default {
             showPopup: false,
         };
     },
+    setup() {
+        const dishes = ref([]);
+        const store = useStore();
+        const router = useRouter();
+
+        const vaiAlPagamento = () => {
+            const order = [...dishes.value];
+
+            store.dispatch('setOrder', order);
+            router.push({ name: 'payment' });
+        };
+
+        return {
+            dishes,
+            vaiAlPagamento
+        };
+    },
+
     watch: {
         dishes: {
             handler(newDishes) {
@@ -116,6 +138,8 @@ export default {
             } else {
                 this.dishes.push({ ...dish, quantity: 1 });
             }
+
+            console.log(this.dishes);
         },
         removeDishFromCart(index) {
             const dish = this.dishes[index];
