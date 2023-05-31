@@ -7,11 +7,11 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Modal title</h5>
+                                <h5 class="modal-title">CARRELLO SVUOTATO</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <p>Il carrello è stato svuotato perchè non è possibile ordinare da più ristoranti
+                                <p>Il carrello è stato svuotato! Non è possibile ordinare da più ristoranti
                                     contemporaneamte.</p>
                             </div>
                             <!-- <div class="modal-footer">
