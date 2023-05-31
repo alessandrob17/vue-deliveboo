@@ -88,7 +88,7 @@ a {
 }
 
 .filter-bg{
-  background-color: rgb(68, 130, 6);
+  background-color: rgb(110, 110, 110);
   padding: 100px;
 }
 </style>
