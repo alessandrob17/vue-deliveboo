@@ -2,12 +2,13 @@
     <DefaultLayout>
         <div class="container my-5">
             <div class="filters">
-
+                <div>{{id}}</div>
                 <input class="mb-5" type="text" v-model="searchTerm" placeholder="Cerca per nome" />
 
                 <label v-for="tcard in typologies" :key="tcard.id">
-                    <input type="checkbox" :value="tcard.id" v-model="selectedTypologies">
-                    {{ tcard.name }}
+                    <input v-if="tcard.id == id" checked type="checkbox" :value="tcard.id" v-model="selectedTypologies">
+                    <input v-else type="checkbox" :value="tcard.id" v-model="selectedTypologies">
+                    {{ tcard.id }} - {{ tcard.name }}
                 </label>
 
             </div>
@@ -35,6 +36,7 @@ export default {
             typologies: [],
             selectedTypologies: [],
             searchTerm: '',
+            id: 0,
         };
     },
 
@@ -58,7 +60,7 @@ export default {
             }
 
             return filtered;
-        },
+        }
     },
 
     methods: {
@@ -81,6 +83,7 @@ export default {
     created() {
         this.fetchRestaurants();
         this.fetchTypologies();
+        this.id = this.$route.params.id;
     },
 
     watch: {
@@ -92,8 +95,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use'../style/partials/reset.scss';
-
 .container {
     display: flex;
     flex-direction: row;
