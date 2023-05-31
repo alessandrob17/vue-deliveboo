@@ -82,38 +82,5 @@ export default {
 
 .accordion-button:not(.collapsed)::after {
     background-image: var(--bs-accordion-btn-icon);
-}</style>
-</script>
-
-<style lang="scss">
-@use '../style/partials/color.scss' as *;
-
-.accordio-title {
-    color: $principale;
-    text-shadow: 1px 1px rgb(157, 157, 157);
-    font-size: 50px;
-    width: 68vw;
-    text-align: center;
-    font-family: 'Playfair', serif;
-    font-style: italic;
-    margin: 0 auto;
-}
-
-.accordion-box {
-    margin: 0 auto;
-    width: 80vw;
-}
-
-.accordion-button:not(.collapsed) {
-    color: white;
-    background-color: $principale;
-}
-
-.accordion-button:focus {
-    box-shadow: 0 0 0 0.25rem $principale;
-}
-
-.accordion-button:not(.collapsed)::after {
-    background-image: var(--bs-accordion-btn-icon);
 }
 </style>
