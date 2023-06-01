@@ -3,7 +3,7 @@
         <Hero></Hero>
         <RestaurantFilter></RestaurantFilter>
         <Accordion></Accordion>
-
+        <CardHome></CardHome>
 
     </Default>
 </template>
@@ -15,6 +15,7 @@ import Accordion from '../components/Accordion.vue';
 import RestaurantFilter from '../components/RestaurantFilter.vue';
 
 import Hero from '../components/Hero.vue';
+import CardHome from '../components/CardHome.vue';
 
 export default {
     components: {
@@ -22,6 +23,7 @@ export default {
         Accordion,
         RestaurantFilter,
         Hero,
+        CardHome
     },
 }
 </script>
