@@ -11,7 +11,7 @@
                 <DropDownText>
                     {{ item.description }}
                 </DropDownText>
-                <span v-for="typology in item.typologies" class="restaurant-typology badge rounded-pill bg-secondary m-1">{{
+                <span v-for="typology in item.typologies" class="restaurant-typology badge rounded-pill pill-color m-1">{{
                     typology.name }}</span>
             </div>
         </div>
@@ -39,6 +39,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use '../style/partials/color.scss' as *;
+
 .restaurant-card {
     display: flex;
     align-items: center;
@@ -63,6 +65,8 @@ export default {
 .restaurant-typology {
     font-size: 16px;
     margin-bottom: 5px;
+    color: white;
+    background-color: $principale;
 }
 
 .restaurant-description {

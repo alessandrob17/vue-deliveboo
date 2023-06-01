@@ -6,7 +6,7 @@
     <div class="box row">
       <div v-for="typology in typologies" :key="typology.id" class="col-3 p-2 m-auto">
         <!-- <a class="filter-link fs-2" :href='/research'>{{ typology.name }}</a> -->
-        <a class="filter-link" @click="selectTypology(typology.id)">{{ typology.name }}</a>
+        <a class="filter-link pointer" @click="selectTypology(typology.id)">{{ typology.name }}</a>
       </div>
     </div>
   </div>
@@ -75,5 +75,9 @@ export default {
 .filter-link:hover {
   background-color: $principale;
   color: white;
+}
+
+.pointer {
+  cursor: pointer;
 }
 </style>

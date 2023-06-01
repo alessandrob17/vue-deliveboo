@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-5">
                     <div class="card text-dark bg-light">
-                        <h3 class="card-header text-center">CARRELLO</h3>
+                        <h3 class="card-header text-center" style="color:#555">CARRELLO</h3>
                         <div class="card-body">
                             <div @click="removeAllDish()" class="text-danger pointer">
                                 <font-awesome-icon icon="fa-solid fa-trash-can" />
@@ -41,7 +41,9 @@
                             </div>
                             <div>
                                 <div v-for="(dish, index) in dishes" :key="dish.id" class="d-flex fs-5">
-                                    {{ dish.name }} &#8364; {{ dish.price }} ({{ dish.quantity }})
+                                    <span class="cart-text">
+                                        {{ dish.name }} &#8364; {{ dish.price }} ({{ dish.quantity }})
+                                    </span>
                                     <div @click="addDishToCart(dish)" class="mx-2 pointer">
                                         <!-- <font-awesome-icon icon="fa-solid fa-cart-plus" />Aggiungi -->
                                         <font-awesome-icon icon="fa-solid fa-circle-plus" class="icon" />
@@ -52,7 +54,7 @@
                                 </div>
                                 <p>Somma totale: &#8364; {{ totalPrice }}</p>
 
-                                <button @click="vaiAlPagamento">Vai al pagamento</button>
+                                <button @click="vaiAlPagamento" class="button-style">Vai al pagamento</button>
                             </div>
                         </div>
                     </div>
@@ -212,5 +214,18 @@ export default {
 .modal {
     display: block;
     background: rgba(0, 0, 0, 0.5);
+}
+
+.button-style {
+    border-radius: 999px;
+    border: 1px solid $principale;
+    color: $principale;
+    background-color: white;
+    padding: 5px;
+
+    &:hover {
+        color: white;
+        background-color: $principale;
+    }
 }
 </style>

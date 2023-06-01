@@ -1,7 +1,7 @@
 <template>
-    <a class="d-flex justify-content-center mt-5" href="/research">
-        <button class="btn-search">Esegui una ricerca avanzata!</button>
-    </a>
+    <div class="d-flex justify-content-center mt-5">
+        <a class="btn-search" href="/research">Esegui una ricerca avanzata!</a>
+    </div>
 </template>
 
 <script>
@@ -12,6 +12,7 @@ export default {
 
 <style lang="scss" scoped >
 @use '../style/partials/color.scss' as *;
+@use '../style/partials/reset.scss' as *;
 
 .btn-search {
 
