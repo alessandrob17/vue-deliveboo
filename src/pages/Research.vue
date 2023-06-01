@@ -2,7 +2,7 @@
     <DefaultLayout>
         <div class="container my-5">
             <div class="filters">
-                <div>{{id}}</div>
+                <div>{{ id }}</div>
                 <input class="mb-5" type="text" v-model="searchTerm" placeholder="Cerca per nome" />
 
                 <label v-for="tcard in typologies" :key="tcard.id">
@@ -106,6 +106,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use '../style/partials/reset.scss' as *;
+
 .container {
     display: flex;
     flex-direction: row;
