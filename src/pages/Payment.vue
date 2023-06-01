@@ -42,7 +42,7 @@
                             </div>
                         </div>
 
-                        <!-- <hr />
+                        <hr />
                         <div class="form-group">
                             <label>Numero carta di credito</label>
                             <div id="creditCardNumber" class="form-control"></div>
@@ -58,10 +58,10 @@
                                     <div id="cvv" class="form-control"></div>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
 
 
-                        <button class="btn btn-primary btn-block my-3" type="submit">
+                        <button class="btn btn-primary btn-block my-3" type="submit" @click="payWithCreditCard">
                             Paga <!-- stronzo -->
                         </button>
                     </form>
@@ -134,45 +134,6 @@ export default {
                 });
         },
 
-        mounted() {
-            braintree.client
-                .create({
-                    authorization: "sandbox_q76fr39z_pwygckh8zgzr2g5y",
-                })
-                .then((clientInstance) => {
-                    let options = {
-                        client: clientInstance,
-                        styles: {
-                            input: {
-                                "font-size": "14px",
-                                "font-family": "Open Sans",
-                            },
-                        },
-                        fields: {
-                            number: {
-                                selector: "#creditCardNumber",
-                                placeholder: "Enter Credit Card",
-                            },
-                            cvv: {
-                                selector: "#cvv",
-                                placeholder: "Enter CVV",
-                            },
-                            expirationDate: {
-                                selector: "#expireDate",
-                                placeholder: "00 / 0000",
-                            },
-                        },
-                    };
-                    return braintree.hostedFields.create(options);
-                })
-                .then((hostedFieldInstance) => {
-                    this.hostedFieldInstance = hostedFieldInstance;
-                })
-                .catch((err) => {
-                    console.error(err);
-                });
-        },
-
         payWithCreditCard() {
             if (this.hostedFieldInstance) {
                 this.hostedFieldInstance
@@ -188,6 +149,46 @@ export default {
             }
         },
     },
+
+    mounted() {
+        braintree.client
+            .create({
+                authorization: "sandbox_q76fr39z_pwygckh8zgzr2g5y",
+            })
+            .then((clientInstance) => {
+                let options = {
+                    client: clientInstance,
+                    styles: {
+                        input: {
+                            "font-size": "14px",
+                            "font-family": "Open Sans",
+                        },
+                    },
+                    fields: {
+                        number: {
+                            selector: "#creditCardNumber",
+                            placeholder: "Enter Credit Card",
+                        },
+                        cvv: {
+                            selector: "#cvv",
+                            placeholder: "Enter CVV",
+                        },
+                        expirationDate: {
+                            selector: "#expireDate",
+                            placeholder: "00 / 0000",
+                        },
+                    },
+                };
+                return braintree.hostedFields.create(options);
+            })
+            .then((hostedFieldInstance) => {
+                this.hostedFieldInstance = hostedFieldInstance;
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+    },
+
 };
 </script>
 <style lang="scss" scoped>
