@@ -7,11 +7,11 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Modal title</h5>
+                                <h5 class="modal-title">CARRELLO SVUOTATO</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <p>Il carrello è stato svuotato perchè non è possibile ordinare da più ristoranti
+                                <p>Il carrello è stato svuotato! Non è possibile ordinare da più ristoranti
                                     contemporaneamte.</p>
                             </div>
                             <!-- <div class="modal-footer">
@@ -51,14 +51,14 @@
                                     </div>
                                 </div>
                                 <p>Somma totale: &#8364; {{ totalPrice }}</p>
+
+                                <button @click="vaiAlPagamento">Vai al pagamento</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
 
     </Default>
 </template>
@@ -67,6 +67,10 @@
 import axios from 'axios';
 import Default from '../layouts/Default.vue';
 import DishCard from '../components/DishCard.vue';
+
+import { ref } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 
 export default {
     components: {
@@ -80,6 +84,24 @@ export default {
             showPopup: false,
         };
     },
+    setup() {
+        const dishes = ref([]);
+        const store = useStore();
+        const router = useRouter();
+
+        const vaiAlPagamento = () => {
+            const order = [...dishes.value];
+
+            store.dispatch('setOrder', order);
+            router.push({ name: 'payment' });
+        };
+
+        return {
+            dishes,
+            vaiAlPagamento
+        };
+    },
+
     watch: {
         dishes: {
             handler(newDishes) {
@@ -116,6 +138,8 @@ export default {
             } else {
                 this.dishes.push({ ...dish, quantity: 1 });
             }
+
+            console.log(this.dishes);
         },
         removeDishFromCart(index) {
             const dish = this.dishes[index];
@@ -164,7 +188,7 @@ export default {
             this.restaurant_id = JSON.parse(localStorage.restaurant_id);
         }
 
-        if (this.restaurant_id != this.getIdRestaurant('id')) {
+        if (this.restaurant_id != this.getIdRestaurant('id') && this.dishes.length > 0) {
             this.showPopup = true;
             this.removeAllDish();
         }

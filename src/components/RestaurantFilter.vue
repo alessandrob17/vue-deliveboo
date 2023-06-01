@@ -9,8 +9,11 @@
     <AdvanceSearch></AdvanceSearch>
 
     <div class="box row">
-      <div v-for="tcard in typologies" class="col-3 p-2 m-auto">
-        <a class="filter-link fs-2" :href="'/research/'+ tcard.id">{{tcard.name}}</a>
+
+      <div v-for="typology in typologies" :key="typology.id" class="col-3 p-2 m-auto">
+        <!-- <a class="filter-link fs-2" :href='/research'>{{ typology.name }}</a> -->
+        <a class="filter-link" @click="selectTypology(typology.id)">{{ typology.name }}</a>
+
       </div>
     </div>
   </div>
@@ -21,9 +24,34 @@ import { defineComponent } from 'vue';
 import axios from 'axios';
 import AdvanceSearch from './AdvanceSearch.vue';
 
-export default defineComponent({
+import { router } from '../router';
+
+export default {
+
   components: {
-    AdvanceSearch
+    AdvanceSearch,
+  },
+  data() {
+    return {
+      typologies: [],
+    };
+  },
+  methods: {
+    fetchTypologies() {
+      axios
+        .get('http://127.0.0.1:8000/api/typologies')
+        .then((res) => {
+          this.typologies = res.data.results;
+        });
+    },
+    selectTypology(id) {
+      const typologyid = id; // Il tuo array con i piatti dell'ordine
+      // Aggiungi i dati come parte dell'URL
+      router.push({ path: '/research', query: { typologyid: JSON.stringify(typologyid) } });
+    },
+  },
+  created() {
+    this.fetchTypologies();
   },
     data() {
         return {
@@ -71,6 +99,8 @@ a {
 }
 
 .filter-link {
+  font-size: 14px;
+
   width: 100%;
   background-color: white;
   border-radius: 5px;
