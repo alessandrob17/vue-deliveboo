@@ -119,6 +119,8 @@ export default {
                 phone_number: this.phone_number,
 
                 total: this.totalPrice, // Modificato il nome della variabile da 'total' a 'totalPrice'
+
+                dishes: this.dishes,
             };
 
             axios
