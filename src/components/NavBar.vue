@@ -1,15 +1,16 @@
 <template>
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary"> 
             <div class="container-fluid">
                 <router-link :to="{ name: 'home' }" class="navbar-brand">
-                    <img src="../assets/deliveboo-low-resolution-logo-color-on-transparent-background (3)_preview_rev_1.png" alt="Logo" class="d-inline-block align-text-top">
+                    <img src="../assets/deliveboo-white.png" alt="Logo" class="d-inline-block align-text-top">
 
                 </router-link>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                
+                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
                     aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </button> -->
                 <!-- <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
                     <ul class="navbar-nav mb-2 mb-lg-0 ">
                         <li class="nav-item ">
@@ -21,9 +22,9 @@
 
                     </ul>
                 </div> -->
-                <font-awesome-icon class="text-white" icon="fa-solid fa-star" />
+                <!-- <font-awesome-icon class="text-white" icon="fa-solid fa-star" /> -->
             </div>
-        </nav>
+        </nav> 
     </header>
 </template>
 
@@ -38,10 +39,20 @@ export default {
 
 img {
     width: 100%;
-    max-width: 200px;
+    max-width: 250px;
+    padding: 10px ;
+    margin-left: 5px;
 }
 
 header {
     background-color: $principale;
 }
+
+
+@media screen and (min-width: 2560px) {
+    img{
+        max-width: 400px;
+    }
+
+    }
 </style>
