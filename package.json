@@ -16,6 +16,7 @@
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.5",
     "braintree-web": "^3.95.0-beta-3ds.1",
     "vue": "^3.2.47",
     "vue-easy-slider": "^5.3.4",

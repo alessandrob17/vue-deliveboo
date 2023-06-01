@@ -3,7 +3,13 @@
         <div class="container my-5">
             <div class="filters">
                 <div>{{ id }}</div>
-                <input class="mb-5" type="text" v-model="searchTerm" placeholder="Cerca per nome" />
+                <div class="mb-5">
+                    <input class="search" type="text" v-model="searchTerm" placeholder="Cerca" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search lens" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>                    
+                </div>
+
 
                 <label v-for="tcard in typologies" :key="tcard.id">
 
@@ -122,6 +128,15 @@ export default {
     .restaurants {
         display: flex;
         flex-direction: column;
+    }
+    .search{
+        border-radius: 25px;
+        padding: 5px 10px;
+    }
+    .lens{
+        position: relative;
+        bottom: 50%;
+        left: 85%;
     }
 }
 </style>
