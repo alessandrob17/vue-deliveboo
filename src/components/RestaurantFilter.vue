@@ -61,9 +61,9 @@ export default {
   font-size: 14px;
 
   width: 100%;
-  background-color: $principale;
+  background-color: white;
   border-radius: 25px;
-  color: white;
+  color: $principale;
   display: block;
   padding: 10px 5px;
   text-align: center;
@@ -73,7 +73,7 @@ export default {
 }
 
 .filter-link:hover {
-  background-color: white;
-  color: $principale;
+  background-color: $principale;
+  color: white;
 }
 </style>
