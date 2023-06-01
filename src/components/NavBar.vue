@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <router-link :to="{ name: 'home' }" class="navbar-brand">
-                    <img src="../assets/logo 1 v2.JPG" alt="Logo" class="d-inline-block align-text-top">
+                    <img src="../assets/deliveboo-low-resolution-logo-color-on-transparent-background (3)_preview_rev_1.png" alt="Logo" class="d-inline-block align-text-top">
 
                 </router-link>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
