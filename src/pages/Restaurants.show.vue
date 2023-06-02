@@ -1,7 +1,7 @@
 <template>
     <Default>
 
-        <div class="container">
+        <div class="container mt-5 mb-5">
             <div v-if="showPopup">
                 <div class="modal" tabindex="-1" role="dialog" @click="closePopup">
                     <div class="modal-dialog" role="document">
