@@ -9,7 +9,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faUserSecret, faMagnifyingGlass, faStar, faCartPlus, faTrashCan, faCirclePlus, faCircleMinus } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
-library.add(faUserSecret, faMagnifyingGlass, faStar, faGithub, faCartPlus, faTrashCan, faCirclePlus, faCircleMinus)
+import { faCreditCard } from '@fortawesome/free-regular-svg-icons'
+library.add(faUserSecret, faMagnifyingGlass, faStar, faGithub, faCartPlus, faTrashCan, faCirclePlus, faCircleMinus, faCreditCard)
 
 
 

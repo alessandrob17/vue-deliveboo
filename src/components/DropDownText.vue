@@ -2,7 +2,7 @@
     <div>
         <div class="dropdown d-block d-sm-none">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Leggi la descrizione
+                Descrizione
             </button>
             <div class="dropdown-menu">
                 <div class="dropdown-item">
