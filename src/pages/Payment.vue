@@ -14,7 +14,7 @@
                 </div>
             </div>
 
-            <div class="col">
+            <div class="col container-cc-info">
                 <div class="card color-sal">
                     <h4 class="card-header titlepayment">Informazioni consegna</h4>
                     <div class="card-body">
@@ -260,5 +260,12 @@ a {
     list-style: none;
     text-decoration: none;
     color: currentColor;
+}
+
+@media screen and (max-width: 532px) {
+    .container-cc-info{
+        margin-top: 2rem;
+    }
+  
 }
 </style>
