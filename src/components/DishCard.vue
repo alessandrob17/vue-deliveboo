@@ -1,17 +1,22 @@
 <template>
     <div class="dish-card">
-        <img :src="'http://127.0.0.1:8000/storage' + '/' + item.cover_image" alt="dish Image" class="dish-image" />
-        <!-- provvisorio -->
+        <img src="https://placebear.com/200/300" alt="" class="restaurant-image d-none d-md-block">
+        <!--<img :src="'http://127.0.0.1:8000/storage' + '/' + item.cover_image" alt="dish Image" class="dish-image" />
+        provvisorio -->
 
         <div class="dish-details">
 
             <h2 class="dish-name">{{ item.name }}</h2>
-            <p class="dish-description">{{ item.description }}</p>
+            <p class="dish-description d-none d-lg-block">{{ item.description }}</p>
+            <DropDownText>
+                {{ item.description }}
+            </DropDownText>
             <h4 class="dish-price"> &#8364; {{ item.price }}</h4>
 
             <!-- <button @click="handleAddToCart">Aggiungi al carrello</button> -->
-            <button @click="handleAddToCart" class="pointer cart-button fs-5">
-                <font-awesome-icon icon="fa-solid fa-cart-plus" class="icon" /> Aggiungi al carrello
+            <button @click="handleAddToCart" class="pointer cart-button fs-5 d-flex">
+                <font-awesome-icon icon="fa-solid fa-cart-plus" class="icon" /> <span class="d-none d-lg-block">Aggiungi al
+                    carrello</span>
             </button>
 
         </div>
@@ -19,7 +24,11 @@
 </template>
 
 <script>
+import DropDownText from '../components/DropDownText.vue';
 export default {
+    components: {
+        DropDownText,
+    },
     props: {
         item: {
             type: Object,
@@ -51,6 +60,7 @@ export default {
 
 .dish-details {
     flex: 1;
+    padding: 30px;
 }
 
 .dish-name,
@@ -62,10 +72,6 @@ export default {
     text-decoration: none;
 }
 
-.dish-typology {
-    font-size: 16px;
-    margin-bottom: 5px;
-}
 
 .dish-description {
     font-size: 14px;
@@ -100,6 +106,8 @@ export default {
     color: $principale;
     background-color: white;
     padding: 5px;
+    display: flex;
+
 
     &:hover {
         color: white;

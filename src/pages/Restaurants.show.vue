@@ -40,7 +40,7 @@
                                 Rimuovi tutti
                             </div>
                             <div>
-                                <div v-for="(dish, index) in dishes" :key="dish.id" class="d-flex fs-5">
+                                <div v-for="(dish, index) in dishes" :key="dish.id" class="d-flex fs-6">
                                     <span class="cart-text">
                                         {{ dish.name }} &#8364; {{ dish.price }} ({{ dish.quantity }})
                                     </span>

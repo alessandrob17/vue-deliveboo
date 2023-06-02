@@ -3,9 +3,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="description m-auto d-flex flex-column text-white">
-                    <img src="../assets/logo 1 v2.JPG" alt="" class="m-auto rounded-circle my-3"
-                        style="aspect-ratio: 1; width:50px;">
-                    <h3 class="text-center">DeliveBoo - Team 5</h3>
+                    <img src="../assets/deliveboo-white.png" alt="" class="m-auto my-3" style="max-width:200px">
+                    <h3 class="text-center">Team 5</h3>
                     <p class="text">Ciao a tutti! Siamo un gruppo di 5 giovani studenti Boolean che hanno lavorato duramente
                         per portare a termine questo progetto di DeliveBoo. Qui trerete il frutto del nostro lavoro e delle
                         nostre ideee. Speriamo che ilnostro progetto possa ispirarvi e farvi apprezzare la passione che
@@ -15,11 +14,11 @@
             </div>
             <div class="container">
                 <div class="row justify-content-center gap-3">
-                    <div class="card shadow-sm col-12 col-md-2 text-center mb-2" v-for="item in  items " :key="item.id">
+                    <div class="card shadow-sm col-12 col-lg-2 text-center mb-2" v-for="item in  items " :key="item.id">
                         <div class="img-hover-zoom img-hover-zoom--colorize text-center">
                             <img class="shadow rounded-circle" :src="item.imageSrc" alt="" style="aspect-ratio: 1;">
                         </div>
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column justify-content-between">
                             <div class="my-2 text-center">
                                 <p class="fs-5">{{ item.name }}</p>
                             </div>

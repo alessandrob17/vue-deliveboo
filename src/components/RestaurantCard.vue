@@ -1,12 +1,13 @@
 <template>
     <a :href="`/restaurants/${item.id}`">
         <div class="restaurant-card">
-            <img :src="'http://127.0.0.1:8000/storage' + '/' + item.cover_image" alt="Restaurant Image"
-                class="restaurant-image" /> <!-- provvisorio -->
+            <img src="https://placebear.com/200/300" alt="" class="restaurant-image d-none d-md-block">
+            <!--<img :src="'http://127.0.0.1:8000/storage' + '/' + item.cover_image" alt="Restaurant Image"
+                class="restaurant-image d-none d-md-block" /> provvisorio -->
 
             <div class="restaurant-details">
 
-                <a class="restaurant-name">{{ item.restaurant_name }}</a>
+                <h2 class="restaurant-name">{{ item.restaurant_name }}</h2>
                 <p class="restaurant-description d-none d-sm-block">{{ item.description }}</p>
                 <DropDownText>
                     {{ item.description }}

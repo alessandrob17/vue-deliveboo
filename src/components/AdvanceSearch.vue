@@ -13,6 +13,7 @@ export default {
 <style lang="scss" scoped >
 @use '../style/partials/color.scss' as *;
 @use '../style/partials/reset.scss' as *;
+@use '../style/partials/reset.scss' as *;
 
 .btn-search {
 
