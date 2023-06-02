@@ -15,9 +15,13 @@
 
             <!-- <button @click="handleAddToCart">Aggiungi al carrello</button> -->
             <button @click="handleAddToCart" class="pointer cart-button fs-5 d-flex">
-                <font-awesome-icon icon="fa-solid fa-cart-plus" class="icon" /> <span class="d-none d-lg-block">Aggiungi al
-                    carrello</span>
+                <span class="d-none d-lg-block">
+                    Aggiungi al carrello
+                    <font-awesome-icon icon="fa-solid fa-cart-plus" class="icon" />
+                </span>
+                <font-awesome-icon icon="fa-solid fa-cart-plus" class="icon d-lg-none" />
             </button>
+
 
         </div>
     </div>
@@ -60,7 +64,8 @@ export default {
 
 .dish-details {
     flex: 1;
-    padding: 30px;
+    width: 80%;
+    margin-left: 10px;
 }
 
 .dish-name,
@@ -108,6 +113,14 @@ export default {
     padding: 5px;
     display: flex;
 
+
+    span {
+        color: $principale;
+
+        &:hover {
+            color: white;
+        }
+    }
 
     &:hover {
         color: white;

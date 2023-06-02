@@ -40,21 +40,32 @@
                                 Rimuovi tutti
                             </div>
                             <div>
-                                <div v-for="(dish, index) in dishes" :key="dish.id" class="d-flex fs-6">
-                                    <span class="cart-text">
-                                        {{ dish.name }} &#8364; {{ dish.price }} ({{ dish.quantity }})
-                                    </span>
-                                    <div @click="addDishToCart(dish)" class="mx-2 pointer">
-                                        <!-- <font-awesome-icon icon="fa-solid fa-cart-plus" />Aggiungi -->
-                                        <font-awesome-icon icon="fa-solid fa-circle-plus" class="icon" />
+                                <div>
+                                    <div v-for="(dish, index) in dishes" :key="dish.id"
+                                        class="d-flex fs-6 flex-column  flex-md-row">
+                                        <ul class="cart-text p-0">
+                                            <li>{{ dish.name }}</li>
+                                            <li>&#8364; {{ dish.price }} x {{ dish.quantity }}</li>
+                                        </ul>
+                                        <div class="my-button d-flex  gap-3 justify-content-center mx-2 mb-2">
+                                            <div @click="addDishToCart(dish)" class="pointer">
+                                                <!-- <font-awesome-icon icon="fa-solid fa-cart-plus" />Aggiungi -->
+                                                <font-awesome-icon icon="fa-solid fa-circle-plus" class="icon" />
+                                            </div>
+                                            <div @click="removeDishFromCart(index)" class="pointer">
+                                                <font-awesome-icon icon="fa-solid fa-circle-minus" class="icon" />
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div @click="removeDishFromCart(index)" class="pointer">
-                                        <font-awesome-icon icon="fa-solid fa-circle-minus" class="icon" />
-                                    </div>
-                                </div>
-                                <p>Somma totale: &#8364; {{ totalPrice }}</p>
+                                    <p class="total-text">Somma totale: &#8364; {{ totalPrice }}</p>
 
-                                <button @click="vaiAlPagamento" class="button-style">Vai al pagamento</button>
+                                    <button @click="vaiAlPagamento" class="button-style">
+                                        <span>Checkout
+                                            <font-awesome-icon icon="fa-regular fa-credit-card" />
+
+                                        </span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -202,6 +213,7 @@ export default {
 <style lang="scss" scoped>
 @use '../style/general.scss' as *;
 @use '../style/partials/color.scss' as *;
+@use '../style/partials/reset.scss' as *;
 
 .pointer {
     cursor: pointer;
@@ -227,5 +239,20 @@ export default {
         color: white;
         background-color: $principale;
     }
+
+    span {
+        color: $principale;
+
+        &:hover {
+            color: white;
+            background-color: $principale;
+        }
+    }
+}
+
+.cart-text,
+.total-text {
+    font-size: 16px;
+    color: #555
 }
 </style>
