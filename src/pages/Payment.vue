@@ -2,12 +2,12 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="card color-sal">
+                <div class="card">
                     <!-- Contenuto del pagamento -->
                     <h4 class="card-header titleOrder">Riepilogo dell'ordine</h4>
                     <ul class="card-body">
-                        <li class="card-text fs-4" v-for="dish in dishes" :key="dish.id">{{ dish.name }} ({{ dish.quantity
-                        }})
+                        <li class="card-text fs-4" v-for="dish in dishes" :key="dish.id">
+                            {{ dish.name }} x {{ dish.quantity }}
                         </li>
                     </ul>
                     <!-- <p>Totale: {{ this.totalPrice }}</p> -->
@@ -65,7 +65,8 @@
                                 </div>
                             </div>
 
-                            <button class="btn btn-light btn-block my-3" type="submit" @click="payWithCreditCard">
+                            <button class="btn btn-light btn-block my-3 payment-button" type="submit"
+                                @click="payWithCreditCard">
                                 Paga
                                 <!-- stronzo -->
                             </button>
@@ -107,7 +108,7 @@ export default {
     created() {
         this.calcolaTotale();
 
-        this.orders = this.dishes;
+        this.listOrders = this.dishes;
 
     },
     watch: {
@@ -221,6 +222,7 @@ export default {
 
 .color-sal {
     background-color: $principale;
+    color: white;
 }
 
 .container {
@@ -234,6 +236,22 @@ export default {
         font-size: 2rem;
     }
 
+    .payment-button {
+        border-radius: 999px;
+        border: 1px solid $principale;
+        color: $principale;
+        background-color: white;
+        padding: 5px;
+
+        &:hover {
+            color: white;
+            background-color: $principale;
+
+            .icon {
+                color: white
+            }
+        }
+    }
 }
 
 ul,
