@@ -1,33 +1,30 @@
 <template>
     <DefaultLayout>
         <div class="container my-5">
-            <div class="filters">
-                <div>{{ id }}</div>
-                <div class="mb-5">
-                    <input class="search" type="text" v-model="searchTerm" placeholder="Cerca" />
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search lens" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                    </svg>                    
+            <div class="row">
+                <div class="col-4">
+                    <div>{{ id }}</div>
+                    <div class="d-flex flex-column">
+                        <input class="rounded-pill border search-bar" type="text" v-model="searchTerm"
+                            placeholder="Cerca" />
+                        <!-- CECKBOX -->
+
+                        <label v-for="tcard in typologies" :key="tcard.id">
+                            <input type="checkbox" :value="tcard.id" v-model="selectedTypologies"
+                                :checked="tcard.id == default_id">
+                            {{ tcard.name }}
+                            {{ console.log(tcard.id == default_id) }}
+                        </label>
+                    </div>
                 </div>
-
-
-                <label v-for="tcard in typologies" :key="tcard.id">
-
-                    <input type="checkbox" :value="tcard.id" v-model="selectedTypologies"
-                        :checked="tcard.id == this.default_id">
-                    {{ tcard.name }}
-                    {{ console.log(tcard.id == this.default_id) }}
-
-                </label>
-
-            </div>
-
-            <div class="restaurants">
-                <RestaurantCard v-for="restaurant in filteredRestaurants" :key="restaurant.id" :item="restaurant" />
+                <div class="col-8">
+                    <RestaurantCard v-for="restaurant in filteredRestaurants" :key="restaurant.id" :item="restaurant" />
+                </div>
             </div>
         </div>
     </DefaultLayout>
 </template>
+
 
 <script>
 import DefaultLayout from '../layouts/Default.vue';
@@ -114,29 +111,16 @@ export default {
 <style lang="scss" scoped>
 @use '../style/partials/reset.scss' as *;
 
-.container {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    gap: 5rem;
+.search-bar {
+    height: 40px;
+    background-color: #eee;
+    border: none;
+    border-radius: 8px;
+    padding-left: 40px;
+    background-image: url(../assets/magnifying-glass-svgrepo-com.svg);
+    background-position-y: center;
+    background-position-x: 8px;
+    background-repeat: no-repeat;
 
-    .filters {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .restaurants {
-        display: flex;
-        flex-direction: column;
-    }
-    .search{
-        border-radius: 25px;
-        padding: 5px 10px;
-    }
-    .lens{
-        position: relative;
-        bottom: 50%;
-        left: 85%;
-    }
 }
 </style>
