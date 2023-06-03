@@ -1,12 +1,12 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col-12 col-md-6 mb-4">
                 <div class="card">
                     <!-- Contenuto del pagamento -->
                     <h4 class="card-header titleOrder">Riepilogo dell'ordine</h4>
                     <ul class="card-body">
-                        <li class="card-text fs-4" v-for="dish in dishes" :key="dish.id">
+                        <li class="card-text" v-for="dish in dishes" :key="dish.id">
                             {{ dish.name }} x {{ dish.quantity }}
                         </li>
                     </ul>
@@ -14,14 +14,14 @@
                 </div>
             </div>
 
-            <div class="col container-cc-info">
+            <div class="col-12 col-md-6 container-cc-info m-0">
                 <div class="card color-sal">
                     <h4 class="card-header titlepayment">Informazioni consegna</h4>
                     <div class="card-body">
                         <div class="alert alert-success" v-if="nonce">
                             Successfully generated nonce.
                         </div>
-                        <form @submit="postOrder">
+                        <form @submit="postOrder" class="d-flex flex-column">
                             <div class="form-group">
                                 <label>Nome</label>
                                 <input type="text" v-model="name" class="form-control" placeholder="Inserisci Nome">
@@ -38,7 +38,7 @@
                                         <input type="text" v-model="phone_number" class="form-control"
                                             placeholder="numero di telefono">
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-6 d-flex flex-column justify-content-between">
                                         <label>Totale</label>
                                         <input type="text" v-model="totalPrice" class="form-control" placeholder="Totale"
                                             readonly>
@@ -58,14 +58,14 @@
                                         <label>Expire Date</label>
                                         <div id="expireDate" class="form-control"></div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-6 d-flex flex-column justify-content-between">
                                         <label>CVV</label>
                                         <div id="cvv" class="form-control"></div>
                                     </div>
                                 </div>
                             </div>
 
-                            <button class="btn btn-light btn-block my-3 payment-button" type="submit"
+                            <button class="btn btn-light btn-block my-3 payment-button align-self-center" type="submit"
                                 @click="payWithCreditCard">
                                 Paga
                                 <!-- stronzo -->
@@ -234,6 +234,7 @@ export default {
 
     .titlepayment {
         font-size: 2rem;
+        color: white;
     }
 
     .payment-button {
@@ -242,10 +243,12 @@ export default {
         color: $principale;
         background-color: white;
         padding: 5px;
+        width: 40%;
 
         &:hover {
             color: white;
             background-color: $principale;
+            border: 1px solid white;
 
             .icon {
                 color: white
@@ -263,9 +266,9 @@ a {
 }
 
 @media screen and (max-width: 532px) {
-    .container-cc-info{
+    .container-cc-info {
         margin-top: 2rem;
     }
-  
+
 }
 </style>

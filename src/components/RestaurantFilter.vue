@@ -54,7 +54,6 @@ export default {
 
 .box {
   margin: 0 auto;
-  width: 80vw;
 }
 
 .filter-link {
