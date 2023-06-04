@@ -7,17 +7,18 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">CARRELLO SVUOTATO</h5>
+                                <h5 class="modal-title">ATTENZIONE</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <p>Il carrello è stato svuotato! Non è possibile ordinare da più ristoranti
-                                    contemporaneamte.</p>
+                                <p>Non è possibile ordinare da più ristoranti contemporaneamte!</p>
                             </div>
-                            <!-- <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div> -->
+                            <div class="modal-footer">
+                                <router-link :to="`/restaurants/${restaurant_id_modal}`" class="btn btn-secondary">Torna
+                                    Indietro</router-link>
+                                <button type="button" class="btn btn-primary" @click="removeAllDish()">Svuota
+                                    Carrello</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -95,6 +96,8 @@ export default {
             dishes: [],
             dishesList: [],
             showPopup: false,
+
+            restaurant_id_modal: JSON.parse(localStorage.restaurant_id),
         };
     },
     setup() {
@@ -175,6 +178,7 @@ export default {
             this.dishes = [];
         },
         closePopup() {
+            this.removeAllDish();
             this.showPopup = false;
         },
     },
@@ -203,8 +207,9 @@ export default {
 
         if (this.restaurant_id != this.getIdRestaurant('id') && this.dishes.length > 0) {
             this.showPopup = true;
-            this.removeAllDish();
         }
+
+        console.log(this.restaurant_id_modal);
 
     }
 }

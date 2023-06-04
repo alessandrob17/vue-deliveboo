@@ -13,6 +13,12 @@
 
 <script>
 
+export default {
+    mounted() {
+        localStorage.clear();
+    }
+}
+
 </script>
 
 <style lang="scss" scoped>
