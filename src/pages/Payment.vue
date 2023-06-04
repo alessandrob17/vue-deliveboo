@@ -4,7 +4,7 @@
             <div class="col-12 col-md-6 mb-4">
                 <div class="card">
                     <!-- Contenuto del pagamento -->
-                    <h4 class="card-header titleOrder">Riepilogo dell'ordine</h4>
+                    <h4 class="card-header titleOrder" style="color:#555">Riepilogo dell'ordine</h4>
                     <ul class="card-body">
                         <li class="card-text" v-for="dish in dishes" :key="dish.id">
                             {{ dish.name }} x {{ dish.quantity }}
@@ -224,6 +224,7 @@ export default {
     background-color: $principale;
     color: white;
 }
+
 
 .container {
     padding: 50px;

@@ -113,22 +113,21 @@ export default {
     padding: 5px;
     display: flex;
 
-
-    span {
-        color: $principale;
-
-        &:hover {
-            color: white;
-        }
-    }
-
     &:hover {
         color: white;
         background-color: $principale;
 
-        .icon {
+        span {
             color: white;
         }
+    }
+}
+
+span {
+    color: $principale;
+
+    &:hover {
+        color: white;
     }
 }
 </style>

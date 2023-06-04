@@ -234,10 +234,15 @@ export default {
     color: $principale;
     background-color: white;
     padding: 5px;
+    display: flex;
 
     &:hover {
         color: white;
         background-color: $principale;
+
+        span {
+            color: white;
+        }
     }
 
     span {
@@ -245,7 +250,6 @@ export default {
 
         &:hover {
             color: white;
-            background-color: $principale;
         }
     }
 }
