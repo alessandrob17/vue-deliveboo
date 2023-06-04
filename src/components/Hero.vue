@@ -16,15 +16,12 @@
 
 
         <div class="container-logo-hero">
-            <img class="logo-hero " src="../assets/462a03f57b4441e6c8e7079d4f3583f7-removebg.png" alt="">
-
-
-
+            <img class="logo-hero " src="../assets/panino.png" alt="">
         </div>
 
         <div>
             <h1 class="h1-hero text-center">
-                Ordina stronzo
+                Ordina ora
             </h1>
         </div>
 

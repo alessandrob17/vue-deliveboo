@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex justify-content-center mt-5">
-        <a class="btn-search" href="/research">Esegui una ricerca avanzata!</a>
+        <a class="btn-search rounded-4" href="/research">Esegui una ricerca avanzata!</a>
     </div>
 </template>
 
@@ -17,7 +17,6 @@ export default {
 
 .btn-search {
 
-    border-radius: 999px;
     background-color: $principale;
     padding: 13px 35px;
     border: none;

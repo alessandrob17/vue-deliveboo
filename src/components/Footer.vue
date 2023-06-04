@@ -4,8 +4,9 @@
             <div class="row">
                 <div class="description m-auto d-flex flex-column text-white">
                     <img src="../assets/deliveboo-white.png" alt="" class="m-auto my-3" style="max-width:200px">
-                    <h3 class="text-center">Team 5</h3>
-                    <p class="text">Ciao a tutti! Siamo un gruppo di 5 giovani studenti Boolean che hanno lavorato duramente
+                    <h3 class="text-center text-white">Team 5</h3>
+                    <p class="text text-white">Ciao a tutti! Siamo un gruppo di 5 giovani studenti Boolean che hanno
+                        lavorato duramente
                         per portare a termine questo progetto di DeliveBoo. Qui trerete il frutto del nostro lavoro e delle
                         nostre ideee. Speriamo che ilnostro progetto possa ispirarvi e farvi apprezzare la passione che
                         abbiamo messo in esso. Qui sotto i link a GitHub dove potrete visionare i nostri progetti.

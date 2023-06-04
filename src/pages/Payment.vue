@@ -65,7 +65,9 @@
                                 </div>
                             </div>
 
+
                             <button class="btn btn-light btn-block my-3 payment-button align-self-center" type="submit">
+
                                 Paga
 
                                 <!-- stronzo -->
@@ -255,7 +257,6 @@ export default {
     }
 
     .payment-button {
-        border-radius: 999px;
         border: 1px solid $principale;
         color: $principale;
         background-color: white;
