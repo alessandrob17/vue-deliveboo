@@ -11,7 +11,7 @@
 
                         <label v-for="tcard in typologies" :key="tcard.id">
                             <input type="checkbox" :value="tcard.id" v-model="selectedTypologies"
-                                :checked="tcard.id == default_id">
+                                :checked="tcard.id == default_id" class="form-check-input">
                             {{ tcard.name }}
                             {{ console.log(tcard.id == default_id) }}
                         </label>
@@ -121,6 +121,16 @@ export default {
     background-position-y: center;
     background-position-x: 8px;
     background-repeat: no-repeat;
+}
 
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(254, 113, 94, 0.25) !important;
+    border-color: #555 !important;
+
+}
+
+.form-check-input:checked {
+    background-color: #FE715E !important;
+    border-color: #555 !important;
 }
 </style>
