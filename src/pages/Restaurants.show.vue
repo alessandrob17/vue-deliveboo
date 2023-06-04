@@ -59,7 +59,7 @@
                                     </div>
                                     <p class="total-text">Somma totale: &#8364; {{ totalPrice }}</p>
 
-                                    <button @click="vaiAlPagamento" class="button-style">
+                                    <button @click="vaiAlPagamento" class="button-style rounded-4" style="padding:4px 8px">
                                         <span>Checkout
                                             <font-awesome-icon icon="fa-regular fa-credit-card" />
 
@@ -229,7 +229,6 @@ export default {
 }
 
 .button-style {
-    border-radius: 999px;
     border: 1px solid $principale;
     color: $principale;
     background-color: white;

@@ -2,8 +2,8 @@
     <Default>
         <Hero></Hero>
         <RestaurantFilter></RestaurantFilter>
-        <Accordion></Accordion>
         <CardHome></CardHome>
+        <Accordion></Accordion>
 
     </Default>
 </template>

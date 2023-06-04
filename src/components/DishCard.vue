@@ -14,10 +14,10 @@
             <h4 class="dish-price"> &#8364; {{ item.price }}</h4>
 
             <!-- <button @click="handleAddToCart">Aggiungi al carrello</button> -->
-            <button @click="handleAddToCart" class="pointer cart-button fs-5 d-flex">
+            <button @click="handleAddToCart" class="pointer cart-button rounded-4 fs-5 d-flex " style="padding:4px 8px">
                 <span class="d-none d-lg-block">
                     Aggiungi al carrello
-                    <font-awesome-icon icon="fa-solid fa-cart-plus" class="icon" />
+                    <font-awesome-icon icon="fa-solid fa-cart-plus" />
                 </span>
                 <font-awesome-icon icon="fa-solid fa-cart-plus" class="icon d-lg-none" />
             </button>
@@ -58,7 +58,6 @@ export default {
     align-items: center;
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 4px;
     margin-bottom: 10px;
 }
 
@@ -99,6 +98,7 @@ export default {
 
 .icon {
     color: $principale;
+    padding: 4px 8px;
 
     .cart-button:hover & {
         color: white;
@@ -106,7 +106,6 @@ export default {
 }
 
 .cart-button {
-    border-radius: 999px;
     border: 1px solid $principale;
     color: $principale;
     background-color: white;
