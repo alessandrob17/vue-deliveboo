@@ -21,7 +21,7 @@
                         <div class="alert alert-success" v-if="nonce">
                             Successfully generated nonce.
                         </div>
-                        <form @submit="postOrder" class="d-flex flex-column">
+                        <form @submit="HandlePayPostRedirectOrder" class="d-flex flex-column">
                             <div class="form-group">
                                 <label>Nome</label>
                                 <input type="text" v-model="name" class="form-control" placeholder="Inserisci Nome">
@@ -65,11 +65,12 @@
                                 </div>
                             </div>
 
-                            <button class="btn btn-light btn-block my-3 payment-button align-self-center" type="submit"
-                                @click="payWithCreditCard">
+                            <button class="btn btn-light btn-block my-3 payment-button align-self-center" type="submit">
                                 Paga
+
                                 <!-- stronzo -->
                             </button>
+
                         </form>
                     </div>
                 </div>
@@ -122,6 +123,20 @@ export default {
     },
 
     methods: {
+
+        async HandlePayPostRedirectOrder(event) {
+            event.preventDefault();
+
+            await this.payWithCreditCard();
+            this.redirectToEndPayment();
+            await this.postOrder();
+        },
+        redirectToEndPayment() {
+            setTimeout(() => {
+                this.$router.push('/endpayment');
+            }, 5000)
+        },
+
         calcolaTotale() {
             let totalPrice = 0;
             for (const dish of this.dishes) {
@@ -130,8 +145,7 @@ export default {
             this.totalPrice = totalPrice;
         },
 
-        postOrder(event) {
-            event.preventDefault();
+        postOrder() {
 
             const formData = {
                 name: this.name,
@@ -155,18 +169,20 @@ export default {
         },
 
         payWithCreditCard() {
-            if (this.hostedFieldInstance) {
-                this.hostedFieldInstance
-                    .tokenize()
-                    .then((payload) => {
-                        console.log(payload);
-                        this.nonce = payload.nonce;
-                        console.log(this.nonce);
-                    })
-                    .catch((err) => {
-                        console.error(err);
-                    });
-            }
+            setTimeout(() => {
+                if (this.hostedFieldInstance) {
+                    this.hostedFieldInstance
+                        .tokenize()
+                        .then((payload) => {
+                            console.log(payload);
+                            this.nonce = payload.nonce;
+                            console.log(this.nonce);
+                        })
+                        .catch((err) => {
+                            console.error(err);
+                        });
+                }
+            }, 2000);
         },
     },
 
