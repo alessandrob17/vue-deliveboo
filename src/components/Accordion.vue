@@ -1,5 +1,5 @@
 <template>
-    <div class="accordio-title mb-4">Domande Frequenti</div>
+    <div class="accordio-title mb-4 text-uppercase fs-1">Domande Frequenti</div>
     <div class="accordion-box mb-5">
         <div class="accordion" id="accordionExample">
             <div class="accordion-item">
@@ -12,7 +12,7 @@
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                     data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        La missione di Deliveroo è quella di trasformare il mondo del cibo a domicilio. Collaboriamo con i
+                        La missione di DeliveBoo è quella di trasformare il mondo del cibo a domicilio. Collaboriamo con i
                         migliori ristoranti della città, dalle gemme locali alle grandi catene nazionali per portarti dove
                         vuoi i tuoi piatti preferiti. Con centinaia di ristoranti e rider esperti, ti consegniamo il tuo
                         ordine il più velocemente possibile.
@@ -50,7 +50,7 @@
                         Ci prendiamo cura personalmente di proporti un'ampia selezione di ristoranti di alta qualità nella
                         tua area. Questo significa che puoi trovare dal miglior ristorante giapponese, all'hamburgheria più
                         gustosa, alla pizzeria italiana tradizionale con forno a legna. L'unica cosa che non troverai su
-                        Deliveroo sono ristoranti di scarsa qualità.
+                        DeliveBoo sono ristoranti di scarsa qualità.
                     </div>
                 </div>
             </div>
