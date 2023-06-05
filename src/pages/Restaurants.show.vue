@@ -97,7 +97,7 @@ export default {
             dishesList: [],
             showPopup: false,
 
-            restaurant_id_modal: JSON.parse(localStorage.restaurant_id),
+            restaurant_id_modal: localStorage.restaurant_id !== undefined ? JSON.parse(localStorage.restaurant_id) : null,
         };
     },
     setup() {
