@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-6 p-0">
                     <div class=" d-flex flex-column h-100 p-5">
-                        <img src="../assets/food delivery.jpg" alt="" class="rounded-4">
+                        <img src="../assets/buste-d.jpg" alt="" class="rounded-4">
                     </div>
                 </div>
                 <div class="col-md-6 p-0">
@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-md-6 p-0">
                     <div class=" d-flex flex-column h-100 p-5 ">
-                        <img src="../assets/order-online.jpeg" alt="" class="rounded-4">
+                        <img src="../assets/deliveboo4.jpg" alt="" class="rounded-4">
                     </div>
                 </div>
             </div>
