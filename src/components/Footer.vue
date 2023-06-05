@@ -28,7 +28,7 @@
                                     <ul class="list-inline">
                                         <li>
                                             <a :href="item.githubLink">
-                                                <font-awesome-icon icon="fa-brands fa-github" bounce size="xl" />
+                                                <font-awesome-icon icon="fa-brands fa-github" class="fs-3" />
                                             </a>
                                         </li>
                                     </ul>
