@@ -178,7 +178,6 @@ export default {
             this.dishes = [];
         },
         closePopup() {
-            this.removeAllDish();
             this.showPopup = false;
         },
     },

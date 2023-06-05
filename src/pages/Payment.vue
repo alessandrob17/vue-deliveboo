@@ -9,6 +9,7 @@
                         <li class="card-text" v-for="dish in dishes" :key="dish.id">
                             {{ dish.name }} x {{ dish.quantity }}
                         </li>
+                        <span>Totale: {{ this.totalPrice.toFixed(2) }}€</span>
                     </ul>
                     <!-- <p>Totale: {{ this.totalPrice }}</p> -->
                 </div>
@@ -38,7 +39,7 @@
                                         <input type="text" v-model="phone_number" class="form-control"
                                             placeholder="numero di telefono">
                                     </div>
-                                    <div class="col-6 d-flex flex-column justify-content-between">
+                                    <div class="col-6 d-flex flex-column justify-content-between d-none">
                                         <label>Totale</label>
                                         <input type="text" v-model="totalPrice" class="form-control" placeholder="Totale"
                                             readonly>
