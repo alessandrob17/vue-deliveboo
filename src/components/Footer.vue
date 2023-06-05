@@ -1,7 +1,7 @@
 <template>
     <footer class="background">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row mt-2">
                 <div class="description m-auto d-flex flex-column text-white">
                     <img src="../assets/deliveboo-white.png" alt="" class="m-auto my-3" style="max-width:200px">
                     <h3 class="text-center text-white">Team 5</h3>

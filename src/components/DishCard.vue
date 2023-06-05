@@ -1,8 +1,7 @@
 <template>
     <div class="dish-card">
-        <img src="https://placebear.com/200/300" alt="" class="restaurant-image d-none d-md-block">
-        <!--<img :src="'http://127.0.0.1:8000/storage' + '/' + item.cover_image" alt="dish Image" class="dish-image" />
-        provvisorio -->
+        <img :src="'http://127.0.0.1:8000/storage' + '/' + item.cover_image" alt="dish Image" class="dish-image" />
+        <!--provvisorio -->
 
         <div class="dish-details">
 

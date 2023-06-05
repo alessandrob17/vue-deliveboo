@@ -1,5 +1,5 @@
 <template>
-    <div class="accordio-title mb-4 text-uppercase fs-1">Domande Frequenti</div>
+    <div class="accordio-title mb-4 text-uppercase fs-1 mt-2">Domande Frequenti</div>
     <div class="accordion-box mb-5">
         <div class="accordion" id="accordionExample">
             <div class="accordion-item">
