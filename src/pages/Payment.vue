@@ -265,7 +265,7 @@ export default {
 
         &:hover {
             color: white;
-            background-color: $principale;
+            background-color: #D3574A;
             border: 1px solid white;
 
             .icon {

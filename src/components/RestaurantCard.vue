@@ -1,9 +1,9 @@
 <template>
     <a :href="`/restaurants/${item.id}`">
         <div class="restaurant-card">
-            <img src="https://placebear.com/200/300" alt="" class="restaurant-image d-none d-md-block">
-            <!--<img :src="'http://127.0.0.1:8000/storage' + '/' + item.cover_image" alt="Restaurant Image"
-                class="restaurant-image d-none d-md-block" /> provvisorio -->
+
+            <img :src="'http://127.0.0.1:8000/storage' + '/' + item.cover_image" alt="Restaurant Image"
+                class="restaurant-image d-none d-md-block" /> <!--provvisorio -->
 
             <div class="restaurant-details">
 
