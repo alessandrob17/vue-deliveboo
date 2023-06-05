@@ -28,7 +28,7 @@
                     <div class="row">
                         <div v-for="dish in dishesList" :key="dish.id">
                             <DishCard @add-to-cart="addDishToCart(dish)" :item="dish"
-                                v-if="dish.restaurant_id == getIdRestaurant('id')" />
+                                v-if="dish.restaurant_id == getIdRestaurant('id') && dish.visible" />
                         </div>
                     </div>
                 </div>
@@ -178,7 +178,6 @@ export default {
             this.dishes = [];
         },
         closePopup() {
-            this.removeAllDish();
             this.showPopup = false;
         },
     },

@@ -15,12 +15,12 @@
     </div> -->
 
     <div class="container-end-payment">
-    <h1>Ordine effettuato con successo
-        <font-awesome-icon class="success-icon" icon="fa-regular fa-circle-check" />
-    </h1>
-    <h3 class="mt-2">Grazie per aver acquistato da noi! </h3>
-    <router-link class="home mt-4" to="/">Torna alla pagina principale</router-link>
-  </div>
+        <h1>Ordine effettuato con successo
+            <font-awesome-icon class="success-icon" icon="fa-regular fa-circle-check" />
+        </h1>
+        <h3 class="mt-2">Grazie per aver acquistato da noi! </h3>
+        <router-link class="home mt-4" to="/">Torna alla pagina principale</router-link>
+    </div>
 </template>
 
 <script>
@@ -34,24 +34,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.success-icon{
+.success-icon {
     color: #39AF48;
 }
 
 .container-end-payment {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
 }
 
 h1 {
-  font-size: 62px;
-  margin-bottom: 20px;
-  text-transform: uppercase;
+    font-size: 62px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 
@@ -65,7 +64,7 @@ h1 {
 //   font-size: 18px;
 // }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -79,22 +78,22 @@ a{
 //     margin-top: 20% !important;
 // }
 
- .home {
-     border-radius: 999px;
-     border: 1px solid #FF7659;
-     color: #FF7659;
-     background-color: white;
-     padding: 8px;
-     width: 20%;
+.home {
+    border-radius: 999px;
+    border: 1px solid #FF7659;
+    color: #FF7659;
+    background-color: white;
+    padding: 8px;
+    width: 20%;
 
-     &:hover {
-         color: white;
+    &:hover {
+        color: white;
         background-color: #FF7659;
-         border: 1px solid white;
+        border: 1px solid white;
 
-         .icon {
-             color: white
-         }
-     }
- }
+        .icon {
+            color: white
+        }
+    }
+}
 </style>
