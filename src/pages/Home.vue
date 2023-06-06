@@ -1,4 +1,5 @@
 <template>
+    <!-- BOOLFINE GRAZIE DI TUTTO È STATO UN PIACERE -->
     <Default>
         <Hero></Hero>
         <RestaurantFilter></RestaurantFilter>
