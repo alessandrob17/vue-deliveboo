@@ -5,12 +5,12 @@
                 <div class="card">
                     <!-- Contenuto del pagamento -->
                     <h4 class="card-header titleOrder" style="color:#555">Riepilogo dell'ordine</h4>
-                    <ul class="card-body">
+                    <ul class="card-body mb-0">
                         <li class="card-text" v-for="dish in dishes" :key="dish.id">
                             {{ dish.name }} x {{ dish.quantity }}
                         </li>
-                        <span>Totale: {{ this.totalPrice.toFixed(2) }}€</span>
                     </ul>
+                    <span class="ps-3 mb-3">Totale: {{ this.totalPrice.toFixed(2) }}€</span>
                     <!-- <p>Totale: {{ this.totalPrice }}</p> -->
                 </div>
             </div>
